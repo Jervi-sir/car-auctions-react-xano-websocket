@@ -51,6 +51,11 @@ query "recipes/by-slug" verb=GET {
       data = {view_count: $recipe.view_count + 1}
     } as $updated_recipe
   
+    // Log the view in history for trending calculation
+    db.add recipe_view_history {
+      data = {recipe_id: $recipe.id, viewed_at: "now"}
+    }
+  
     var $response_data {
       value = {
         recipe     : $updated_recipe

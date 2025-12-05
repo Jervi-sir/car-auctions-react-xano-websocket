@@ -82,6 +82,9 @@ table recipe {
     // Number of times the recipe has been viewed
     int view_count?
   
+    // Score calculated based on recent views for trending algorithm
+    decimal viewed_score?
+  
     // Average rating of the recipe (0-5 stars)
     decimal rating? filters=min:0|max:5
   
