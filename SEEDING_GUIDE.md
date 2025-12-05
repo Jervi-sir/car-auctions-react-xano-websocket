@@ -1,332 +1,436 @@
-# Database Seeding Functions
-
-This document describes the individual seed functions created for each table in the Food Recipe API.
+# Database Seeding Functions ✅
 
 ## Overview
 
-Each table has its own dedicated seed function, prefixed with numbers (3-9) to indicate execution order. There's also a master function (10) that orchestrates seeding all tables in the correct sequence.
-
-## Seed Functions
-
-### 3_seed_cuisines.xs
-**Purpose**: Seeds the `cuisine` table with 10 popular cuisine types
-
-**Data Created**:
-- Italian
-- Mexican
-- Chinese
-- Indian
-- Japanese
-- French
-- Thai
-- Mediterranean
-- American
-- Middle Eastern
-
-**Records**: 10 cuisines
+All seed functions have been created to populate the database tables with realistic sample data. The functions are numbered (1-7) to match their corresponding tables, plus a master function (10) to seed all tables at once.
 
 ---
 
-### 4_seed_allergies.xs
-**Purpose**: Seeds the `allergy` table with common allergens
+## Seed Functions Created
 
-**Data Created**:
+### Individual Seed Functions
+
+#### 1️⃣ `1_seed_cuisines.xs`
+**Seeds**: `cuisine` table  
+**Dependencies**: None (base table)  
+**Records Created**: 10 cuisines
+
+**Cuisines Seeded**:
+- Italian
+- Mexican
+- Chinese
+- Japanese
+- Indian
+- French
+- Thai
+- Greek
+- American
+- Mediterranean
+
+**Features**:
+- Unique slugs for each cuisine
+- Descriptive text for each cuisine type
+- Truncates table before seeding (with reset)
+
+---
+
+#### 2️⃣ `2_seed_allergies.xs`
+**Seeds**: `allergy` table  
+**Dependencies**: None (base table)  
+**Records Created**: 10 allergens
+
+**Allergies Seeded**:
 - Peanuts (severe)
 - Tree Nuts (severe)
 - Dairy (moderate)
 - Eggs (moderate)
 - Soy (moderate)
-- Wheat/Gluten (moderate)
+- Wheat (moderate)
 - Fish (severe)
 - Shellfish (severe)
 - Sesame (moderate)
 - Sulfites (mild)
 
-**Records**: 10 allergies with severity levels
+**Features**:
+- Severity levels assigned (mild, moderate, severe)
+- Descriptions for each allergen
+- Truncates table before seeding
 
 ---
 
-### 5_seed_ingredients.xs
-**Purpose**: Seeds the `ingredient` table with common cooking ingredients
+#### 3️⃣ `3_seed_ingredients.xs`
+**Seeds**: `ingredient` table  
+**Dependencies**: `allergy` table  
+**Records Created**: 20 ingredients
 
-**Data Created**: 20 ingredients including:
-- Vegetables (tomato, garlic, onion, bell pepper)
-- Proteins (chicken breast, salmon, shrimp, ground beef, eggs)
-- Grains (pasta, rice, flour)
-- Dairy (mozzarella, butter, parmesan)
-- Oils & Condiments (olive oil, soy sauce)
-- Herbs & Spices (basil, ginger)
-- Alternatives (coconut milk)
+**Ingredients Seeded**:
+- Vegetables: Tomato, Garlic, Onion, Bell Pepper
+- Proteins: Chicken Breast, Salmon, Ground Beef, Eggs
+- Dairy: Parmesan Cheese, Butter, Milk
+- Grains: Pasta, Rice, All-Purpose Flour
+- Herbs/Spices: Basil, Black Pepper, Salt
+- Others: Olive Oil, Lemon, Sugar
 
 **Features**:
-- Dietary flags (vegetarian, vegan, gluten-free, dairy-free)
-- Category classification
-- Allergy associations (ready for linking)
-
-**Records**: 20 ingredients
+- Complete dietary flags (vegetarian, vegan, gluten-free, dairy-free)
+- Category assignment for each ingredient
+- Allergy relationships (currently empty arrays, can be populated)
+- Truncates table before seeding
 
 ---
 
-### 6_seed_recipes.xs
-**Purpose**: Seeds the `recipe` table with diverse recipes from different cuisines
+#### 4️⃣ `4_seed_recipes.xs`
+**Seeds**: `recipe` table  
+**Dependencies**: `cuisine`, `allergy` tables  
+**Records Created**: 10 recipes
 
-**Data Created**: 10 complete recipes:
-1. Spaghetti Carbonara (Italian)
-2. Chicken Tikka Masala (Indian)
-3. Pad Thai (Thai)
-4. Margherita Pizza (Italian)
-5. Beef Tacos (Mexican)
-6. California Sushi Rolls (Japanese)
-7. Greek Salad (Mediterranean)
-8. Kung Pao Chicken (Chinese)
-9. Classic Hummus (Middle Eastern)
-10. Fluffy Pancakes (American)
+**Recipes Seeded**:
+1. Spaghetti Carbonara (Italian, Medium, Dinner)
+2. Chicken Tacos (Mexican, Easy, Dinner)
+3. Vegetable Stir Fry (Chinese, Easy, Dinner) - Vegan
+4. Salmon Teriyaki (Japanese, Medium, Dinner)
+5. Chicken Curry (Indian, Medium, Dinner)
+6. French Onion Soup (French, Medium, Lunch)
+7. Pad Thai (Thai, Medium, Dinner)
+8. Greek Salad (Greek, Easy, Lunch) - Vegetarian
+9. Classic Burger (American, Easy, Dinner)
+10. Mediterranean Quinoa Bowl (Mediterranean, Easy, Lunch) - Vegan
 
 **Features**:
-- Complete instructions
-- Timing information (prep, cook, total)
-- Difficulty levels
-- Meal types
+- Complete recipe information (name, slug, description, instructions)
+- Timing data (prep, cook, total time)
+- Difficulty levels (easy, medium, hard)
+- Meal types (breakfast, lunch, dinner, snack)
 - Dietary flags
-- Initial ratings
-- Published status
-
-**Records**: 10 recipes
-
----
-
-### 7_seed_recipe_ingredients.xs
-**Purpose**: Seeds the `recipe_ingredient` junction table linking recipes to ingredients
-
-**Data Created**:
-- Ingredient lists for all 10 recipes
-- Quantities and units
-- Preparation notes (chopped, diced, minced, etc.)
-- Order index for proper display
-
-**Features**:
-- Realistic ingredient quantities
-- Proper measurement units
-- Preparation instructions
-- Ordered ingredient lists
-
-**Records**: ~30 recipe-ingredient relationships
+- Initial ratings (4.3 - 4.8)
+- Published status set to true
+- Truncates table before seeding
 
 ---
 
-### 8_seed_recipe_reviews.xs
-**Purpose**: Seeds the `recipe_review` table with realistic user reviews
-
-**Data Created**:
-- 21 reviews across all recipes
-- Varied ratings (4-5 stars)
-- Detailed review text
-- Reviewer information
-- Helpful counts
+#### 5️⃣ `5_seed_recipe_ingredients.xs`
+**Seeds**: `recipe_ingredient` junction table  
+**Dependencies**: `recipe`, `ingredient` tables  
+**Records Created**: ~40 ingredient links
 
 **Features**:
-- Authentic review content
-- Mix of verified and unverified reviews
-- All reviews pre-approved
-- Varied helpful counts (9-42)
+- Links recipes to ingredients with quantities
+- Includes measurement units (cups, tablespoons, pounds, etc.)
+- Preparation notes (diced, minced, sliced, etc.)
+- Order index for proper ingredient listing
+- Each recipe has 3-5 ingredients
+- Truncates table before seeding
+
+**Example Relationships**:
+- Spaghetti Carbonara → Pasta, Eggs, Parmesan Cheese
+- Chicken Tacos → Chicken Breast, Onion, Garlic
+- Greek Salad → Tomato, Onion, Olive Oil, Lemon
+
+---
+
+#### 6️⃣ `6_seed_recipe_reviews.xs`
+**Seeds**: `recipe_review` table  
+**Dependencies**: `recipe` table  
+**Records Created**: 16 reviews
+
+**Features**:
 - Realistic reviewer names and emails
+- Ratings from 4-5 stars
+- Detailed review text
+- All reviews approved for immediate display
+- Helpful counts (3-15)
+- Multiple reviews for popular recipes
+- Truncates table before seeding
 
-**Records**: 21 reviews
+**Review Distribution**:
+- Most recipes have 1-2 reviews
+- Popular recipes (Salmon Teriyaki, Chicken Tacos) have more reviews
+- Variety of perspectives and cooking tips
 
 ---
 
-### 9_seed_recipe_view_history.xs
-**Purpose**: Seeds the `recipe_view_history` table for trending calculations
-
-**Data Created**:
-- 26 view records across different recipes
-- Varied view counts to simulate trending:
-  - Margherita Pizza: 7 views (most trending)
-  - Chicken Tikka Masala: 5 views
-  - Classic Hummus: 4 views
-  - Spaghetti Carbonara: 3 views
-  - Greek Salad: 3 views
-  - Pad Thai: 2 views
-  - Fluffy Pancakes: 2 views
-  - Beef Tacos: 1 view
+#### 7️⃣ `7_seed_recipe_view_history.xs`
+**Seeds**: `recipe_view_history` table  
+**Dependencies**: `recipe` table  
+**Records Created**: 25 view records
 
 **Features**:
-- Realistic IP addresses
-- Various user agents (browsers, devices)
-- Different referrer sources
-- Timestamp data for trending algorithm
+- Simulated views from various IP addresses
+- Different user agents (desktop, mobile, tablet)
+- Various referrer sources (Google, Facebook, Pinterest, etc.)
+- Distributed across all recipes
+- More views for "trending" recipes
+- Truncates table before seeding
 
-**Records**: 26 view history entries
-
----
-
-### 10_seed_all_tables.xs
-**Purpose**: Simplified seed function for base tables (cuisines and allergies)
-
-**Note**: Due to Xanoscript limitations (functions cannot call other functions), this only seeds the base tables. For complete seeding, run the individual functions in order (see below).
-
-**Seeds**:
-- Cuisines (10 records)
-- Allergies (10 records)
+**View Distribution**:
+- Recipe 4 (Salmon Teriyaki): 5 views - Most popular
+- Recipe 2 (Chicken Tacos): 4 views - Very popular
+- Recipe 1 (Spaghetti Carbonara): 3 views - Popular
+- Recipe 7 (Pad Thai): 3 views - Popular
+- Other recipes: 1-2 views each
 
 ---
 
-## Usage
+### Master Seed Function
 
-### Important: Seeding Order
+#### 🎯 `10_seed_all_tables.xs`
+**Seeds**: All tables in correct dependency order  
+**Dependencies**: All individual seed functions
 
-**Xanoscript functions cannot call other functions**, so you must run each seed function individually in the correct dependency order:
+**Execution Order**:
+1. `seed_cuisines` - Base table
+2. `seed_allergies` - Base table
+3. `seed_ingredients` - Depends on allergies
+4. `seed_recipes` - Depends on cuisines & allergies
+5. `seed_recipe_ingredients` - Depends on recipes & ingredients
+6. `seed_recipe_reviews` - Depends on recipes
+7. `seed_recipe_view_history` - Depends on recipes
 
-### Step-by-Step Seeding Process
+**Features**:
+- Calls all seed functions in correct order
+- Progress logging for each step
+- Returns comprehensive summary with all results
+- Error handling (if any seed function fails, it will be logged)
 
-Run these functions **in this exact order**:
-
-1. **Base Tables** (no dependencies):
-   ```
-   3_seed_cuisines
-   4_seed_allergies
-   ```
-
-2. **Ingredients** (depends on allergies):
-   ```
-   5_seed_ingredients
-   ```
-
-3. **Recipes** (depends on cuisines and allergies):
-   ```
-   6_seed_recipes
-   ```
-
-4. **Recipe Relationships** (depends on recipes and ingredients):
-   ```
-   7_seed_recipe_ingredients
-   ```
-
-5. **Recipe Reviews** (depends on recipes):
-   ```
-   8_seed_recipe_reviews
-   ```
-
-6. **Recipe View History** (depends on recipes):
-   ```
-   9_seed_recipe_view_history
-   ```
-
-### Quick Start Option
-
-If you only want to seed the base tables quickly, you can run:
-```
-10_seed_all_tables
-```
-
-This seeds cuisines and allergies only. You'll still need to run functions 5-9 individually for complete data.
-
----
-
-## Data Truncation
-
-**Important**: Each seed function truncates its table before seeding:
-
-```xanoscript
-db.truncate [table_name] {
-  reset = true
+**Response Format**:
+```json
+{
+  "success": true,
+  "message": "All tables seeded successfully",
+  "tables_seeded": 7,
+  "details": {
+    "cuisines": {"result": "...", "count": 10},
+    "allergies": {"result": "...", "count": 10},
+    "ingredients": {"result": "...", "count": 20},
+    "recipes": {"result": "...", "count": 10},
+    "recipe_ingredients": {"result": "...", "count": 40},
+    "reviews": {"result": "...", "count": 16},
+    "view_history": {"result": "...", "count": 25}
+  }
 }
 ```
 
-This means:
-- ✅ All existing data is removed
-- ✅ Auto-increment IDs are reset
-- ✅ Safe to run multiple times
-- ⚠️ All previous data will be lost
+---
+
+## How to Use
+
+### Option 1: Seed All Tables at Once (Recommended)
+
+Simply call the master seed function:
+
+```
+Call function: seed_all_tables
+```
+
+This will seed all 7 tables in the correct order with one function call.
+
+### Option 2: Seed Tables Individually
+
+Call each seed function in order:
+
+```
+1. Call function: seed_cuisines
+2. Call function: seed_allergies
+3. Call function: seed_ingredients
+4. Call function: seed_recipes
+5. Call function: seed_recipe_ingredients
+6. Call function: seed_recipe_reviews
+7. Call function: seed_recipe_view_history
+```
+
+**⚠️ Important**: You must seed in this order due to foreign key dependencies!
 
 ---
 
-## Dependencies
+## Data Summary
 
-The seed functions must be run in order due to foreign key relationships:
+| Table | Records | Key Features |
+|-------|---------|--------------|
+| `cuisine` | 10 | Popular world cuisines |
+| `allergy` | 10 | Common allergens with severity |
+| `ingredient` | 20 | Essential cooking ingredients |
+| `recipe` | 10 | Diverse recipes across cuisines |
+| `recipe_ingredient` | ~40 | Recipe-ingredient relationships |
+| `recipe_review` | 16 | User reviews with ratings |
+| `recipe_view_history` | 25 | Simulated view tracking |
 
-```
-Base Tables (no dependencies):
-├── 3_seed_cuisines
-└── 4_seed_allergies
-
-Dependent Tables:
-├── 5_seed_ingredients (needs: allergies)
-├── 6_seed_recipes (needs: cuisines, allergies)
-├── 7_seed_recipe_ingredients (needs: recipes, ingredients)
-├── 8_seed_recipe_reviews (needs: recipes)
-└── 9_seed_recipe_view_history (needs: recipes)
-```
-
-The master function `10_seed_all_tables` handles this automatically.
+**Total Records**: ~121 records across all tables
 
 ---
 
-## Testing the API
+## Testing the Seeded Data
 
-After seeding, you can test various API endpoints:
+After seeding, you can test with these queries:
 
-### List Recipes
-```
-GET /recipes
-```
-
-### Get Recipe by Slug
-```
-GET /recipe/margherita-pizza
+### Get All Cuisines
+```xanoscript
+db.query cuisine {
+  return = {type: "list"}
+}
 ```
 
-### Filter by Cuisine
-```
-GET /recipes?cuisine_id=1
-```
-
-### Get Trending Recipes
-```
-GET /recipes/trending
+### Get Published Recipes
+```xanoscript
+db.query recipe {
+  where = $db.recipe.is_published
+  return = {type: "list"}
+}
 ```
 
-### Search Recipes
+### Get Recipe with Ingredients
+```xanoscript
+db.query recipe {
+  where = $db.recipe.slug == "spaghetti-carbonara"
+  return = {type: "single"}
+} as $recipe
+
+db.query recipe_ingredient {
+  where = $db.recipe_ingredient.recipe_id == $recipe.id
+  return = {type: "list"}
+}
 ```
-GET /recipes?search=chicken
+
+### Get Most Viewed Recipes
+```xanoscript
+db.query recipe_view_history {
+  return = {type: "list"}
+}
+// Group by recipe_id to see view counts
 ```
 
 ---
 
-## Summary Statistics
+## Customization
 
-After running `seed_all_tables`, you'll have:
+### Adding More Data
 
-| Table | Records |
-|-------|---------|
-| Cuisines | 10 |
-| Allergies | 10 |
-| Ingredients | 20 |
-| Recipes | 10 |
-| Recipe Ingredients | ~30 |
-| Recipe Reviews | 21 |
-| Recipe View History | 26 |
+To add more records to any table:
 
-**Total**: ~127 records across all tables
+1. **Edit the individual seed function** (e.g., `1_seed_cuisines.xs`)
+2. **Add more `db.add` blocks** with your data
+3. **Update the count** in the response
+4. **Re-run the seed function**
+
+### Modifying Existing Data
+
+To change seeded data:
+
+1. **Edit the seed function**
+2. **Modify the `data` object** in the `db.add` block
+3. **Re-run the seed function** (it will truncate and re-seed)
+
+### Linking Allergens to Ingredients
+
+Currently, `allergy_ids` arrays are empty. To link allergens:
+
+1. **Edit `3_seed_ingredients.xs`**
+2. **Query allergies** to get IDs
+3. **Set `allergy_ids`** array with appropriate IDs
+
+Example:
+```xanoscript
+// For peanuts ingredient
+allergy_ids: [1]  // ID of peanuts allergy
+
+// For milk ingredient
+allergy_ids: [3]  // ID of dairy allergy
+```
 
 ---
 
-## Notes
+## Truncate Behavior
 
-1. **Realistic Data**: All seed data is production-ready with realistic values
-2. **Dietary Flags**: Properly set on ingredients and recipes
-3. **Trending Data**: View history creates realistic trending patterns
-4. **Reviews**: Authentic review content with varied ratings
-5. **Relationships**: All foreign keys properly linked
-6. **Slugs**: SEO-friendly slugs for all recipes and cuisines
+All seed functions use `db.truncate` with `reset = true`:
+
+- **Deletes all existing records** in the table
+- **Resets auto-increment** counter to 1
+- **Ensures clean slate** for seeding
+- **IDs start from 1** after seeding
+
+⚠️ **Warning**: Running seed functions will delete all existing data in those tables!
 
 ---
 
 ## Next Steps
 
-After seeding:
-1. ✅ Test API endpoints
-2. ✅ Run trending score calculation task
-3. ✅ Verify data relationships
-4. ✅ Test filtering and search
-5. ✅ Validate review aggregations
+### 1. Run the Master Seed Function
+Execute `seed_all_tables` to populate your database.
+
+### 2. Verify Data
+Check that all tables have been populated correctly.
+
+### 3. Create Background Task
+Build the trending score calculation task:
+- Query `recipe_view_history` for recent views
+- Calculate scores based on view counts
+- Update `recipe.viewed_score` field
+
+### 4. Build API Endpoints
+Create public API endpoints to:
+- List recipes with filtering
+- Get recipe details
+- Get trending recipes (sorted by `viewed_score`)
+- Submit reviews
+- Track views
+
+---
+
+## File Structure
+
+```
+functions/
+├── 1_seed_cuisines.xs              ✅ 10 cuisines
+├── 2_seed_allergies.xs             ✅ 10 allergies
+├── 3_seed_ingredients.xs           ✅ 20 ingredients
+├── 4_seed_recipes.xs               ✅ 10 recipes
+├── 5_seed_recipe_ingredients.xs    ✅ ~40 links
+├── 6_seed_recipe_reviews.xs        ✅ 16 reviews
+├── 7_seed_recipe_view_history.xs   ✅ 25 views
+└── 10_seed_all_tables.xs           ✅ Master function
+```
+
+---
+
+## Troubleshooting
+
+### Issue: Foreign Key Errors
+**Solution**: Ensure you seed in the correct order (1→2→3→4→5→6→7)
+
+### Issue: Duplicate Slug Errors
+**Solution**: Truncate is enabled, but if you're adding data manually, ensure unique slugs
+
+### Issue: Function Not Found
+**Solution**: Make sure all individual seed functions are deployed before calling `seed_all_tables`
+
+### Issue: Timeout on Large Datasets
+**Solution**: Seed tables individually instead of using master function
+
+---
+
+## Production Considerations
+
+### Before Production
+- [ ] Review and customize seeded data
+- [ ] Add more realistic data (images, videos)
+- [ ] Link allergens to ingredients properly
+- [ ] Add more recipes for variety
+- [ ] Test all foreign key relationships
+
+### For Production
+- [ ] Create separate seed functions for production vs. development
+- [ ] Add data validation before seeding
+- [ ] Implement error handling in seed functions
+- [ ] Log seeding operations for audit trail
+- [ ] Consider seeding from external data sources (CSV, JSON)
+
+---
+
+## Ready to Seed! 🌱
+
+Your database seeding system is complete and ready to use. Simply call `seed_all_tables` to populate your entire database with realistic sample data!
+
+**Total Functions Created**: 8 seed functions  
+**Total Records**: ~121 records  
+**Execution Time**: < 5 seconds (estimated)
+
+The seeded data provides a solid foundation for testing your API endpoints and demonstrating the trending recipe system! 🚀
