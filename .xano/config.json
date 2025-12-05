@@ -1,0 +1,11 @@
+{
+  "instanceName": "xqrx-tgqf-f4ju",
+  "workspaceId": 1,
+  "branch": "v1",
+  "paths": {
+    "functions": "functions",
+    "tables": "tables",
+    "apis": "apis",
+    "tasks": "tasks"
+  }
+}
