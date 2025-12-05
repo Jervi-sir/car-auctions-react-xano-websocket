@@ -1,4 +1,4 @@
-task update {
+task sample {
   active = false
 
   stack {
