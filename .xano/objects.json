@@ -2,7 +2,7 @@
   {
     "id": 58,
     "type": "api_group",
-    "path": "apis\\user\\api_group.xs",
+    "path": "apis/user/api_group.xs",
     "status": "unchanged",
     "staged": false,
     "sha256": "c7ba0ec0418d85291de75dd10ac2a865220c45dbe11fb18114a686f94f82031c",
@@ -11,7 +11,7 @@
   {
     "id": 72,
     "type": "api_endpoint",
-    "path": "apis\\user\\72_get_user_GET.xs",
+    "path": "apis/user/72_get_user_GET.xs",
     "status": "unchanged",
     "staged": false,
     "sha256": "0954d8106fd608cb2c6e0dba9f2ac68b19effeec9c1ec044a0768d7f3c94f815",
@@ -20,7 +20,7 @@
   {
     "id": 132,
     "type": "table",
-    "path": "tables\\132_allergy.xs",
+    "path": "tables/132_allergy.xs",
     "status": "unchanged",
     "staged": false,
     "sha256": "ef1ec248126bd08518c61eed3649b80cfe4775ae4e262c351dc7f12d061b8875",
@@ -29,7 +29,7 @@
   {
     "id": 131,
     "type": "table",
-    "path": "tables\\131_cuisine.xs",
+    "path": "tables/131_cuisine.xs",
     "status": "unchanged",
     "staged": false,
     "sha256": "2550038b3943ddc64856ddb2a71a7eb287b1f289809adb7b0abcce8491cc79ab",
@@ -38,7 +38,7 @@
   {
     "id": 133,
     "type": "table",
-    "path": "tables\\133_ingredient.xs",
+    "path": "tables/133_ingredient.xs",
     "status": "unchanged",
     "staged": false,
     "sha256": "bda820526c33edf144d217085191cbe3773356243656fb823e91ca994d88c99d",
@@ -47,7 +47,7 @@
   {
     "id": 134,
     "type": "table",
-    "path": "tables\\134_recipe.xs",
+    "path": "tables/134_recipe.xs",
     "status": "unchanged",
     "staged": false,
     "sha256": "51a853b7784bcc4b23b7a05b5118928d0e634bc76efcdfc67418fa98578d1828",
@@ -56,7 +56,7 @@
   {
     "id": 135,
     "type": "table",
-    "path": "tables\\135_recipe_ingredient.xs",
+    "path": "tables/135_recipe_ingredient.xs",
     "status": "unchanged",
     "staged": false,
     "sha256": "84c24d1ff1ffb2e873ac3ba74750cee6e50985df3cccce31b41f29a9e0c401f6",
@@ -65,7 +65,7 @@
   {
     "id": 136,
     "type": "table",
-    "path": "tables\\136_recipe_review.xs",
+    "path": "tables/136_recipe_review.xs",
     "status": "unchanged",
     "staged": false,
     "sha256": "d6ede807c43aae245f76758ce707f33129baffe2b9b0f5fb710b0e5dbd4bc473",
@@ -74,7 +74,7 @@
   {
     "id": 137,
     "type": "table",
-    "path": "tables\\137_recipe_view_history.xs",
+    "path": "tables/137_recipe_view_history.xs",
     "status": "unchanged",
     "staged": false,
     "sha256": "b8db78cbefe201240f1331d67bd381a2ca007f508c86d79387f6eea903eedac1",
@@ -83,7 +83,7 @@
   {
     "id": 60,
     "type": "function",
-    "path": "functions\\60_seed_all_tables.xs",
+    "path": "functions/60_seed_all_tables.xs",
     "status": "unchanged",
     "staged": false,
     "sha256": "9eacbd04027feb845852f7c7586d6d4c0c04f23b9f5840357ec6c773d8b5bf47",
@@ -92,7 +92,7 @@
   {
     "id": 59,
     "type": "function",
-    "path": "functions\\59_seed_recipe_view_history.xs",
+    "path": "functions/59_seed_recipe_view_history.xs",
     "status": "unchanged",
     "staged": false,
     "sha256": "b968fbfb6808731e89ad0c87d438abbf0312b807f07a78a227301811f9e659b6",
@@ -101,7 +101,7 @@
   {
     "id": 58,
     "type": "function",
-    "path": "functions\\58_seed_recipe_reviews.xs",
+    "path": "functions/58_seed_recipe_reviews.xs",
     "status": "unchanged",
     "staged": false,
     "sha256": "b025db552ca55d6a9bf5ae3c4247be681398da53217316dff1b5accf4134944a",
@@ -110,7 +110,7 @@
   {
     "id": 57,
     "type": "function",
-    "path": "functions\\57_seed_recipe_ingredients.xs",
+    "path": "functions/57_seed_recipe_ingredients.xs",
     "status": "unchanged",
     "staged": false,
     "sha256": "ba891e17239aa728ae89da41d23480c4bf01d113cc83d0b3be369eb73313251b",
@@ -119,7 +119,7 @@
   {
     "id": 56,
     "type": "function",
-    "path": "functions\\56_seed_recipes.xs",
+    "path": "functions/56_seed_recipes.xs",
     "status": "unchanged",
     "staged": false,
     "sha256": "3bd987676b6d902d22f9746f7473d2c69589fe9dee963348309e86290ee6def8",
@@ -128,7 +128,7 @@
   {
     "id": 55,
     "type": "function",
-    "path": "functions\\55_seed_ingredients.xs",
+    "path": "functions/55_seed_ingredients.xs",
     "status": "unchanged",
     "staged": false,
     "sha256": "b84f3f09f582b31863b34880305edcd2e9bbb74090420caa926ea4ff382fbe04",
@@ -137,7 +137,7 @@
   {
     "id": 54,
     "type": "function",
-    "path": "functions\\54_seed_allergies.xs",
+    "path": "functions/54_seed_allergies.xs",
     "status": "unchanged",
     "staged": false,
     "sha256": "b6569c40281ac84dcfa0d0b862d052ca08c9e8d283462ef41f5b9e1a377339c4",
@@ -146,7 +146,7 @@
   {
     "id": 53,
     "type": "function",
-    "path": "functions\\53_seed_cuisines.xs",
+    "path": "functions/53_seed_cuisines.xs",
     "status": "unchanged",
     "staged": false,
     "sha256": "be897bf2748c7852a78019deebfb16706d40e87ef51064198e4ea0c1ccdf0022",
@@ -155,7 +155,7 @@
   {
     "id": 41,
     "type": "function",
-    "path": "functions\\41_sample.xs",
+    "path": "functions/41_sample.xs",
     "status": "unchanged",
     "staged": false,
     "sha256": "76759a29c3e6c472e6a3144d54cc1ef9c5cd118ffdc0be89faa657a4d177ba30",
@@ -164,7 +164,7 @@
   {
     "id": 2,
     "type": "task",
-    "path": "tasks\\2_sample.xs",
+    "path": "tasks/2_sample.xs",
     "status": "unchanged",
     "staged": false,
     "sha256": "28dec2a7b1282b72a7a732ee8a7b9698406bb1f6789be85953178816e2a73212",
@@ -172,7 +172,7 @@
   },
   {
     "id": 59,
-    "path": "apis\\recipes\\api_group.xs",
+    "path": "apis/recipes/api_group.xs",
     "status": "unchanged",
     "type": "api_group",
     "staged": false,
@@ -181,7 +181,7 @@
   },
   {
     "id": 84,
-    "path": "apis\\recipes\\1_list_GET.xs",
+    "path": "apis/recipes/1_list_GET.xs",
     "status": "unchanged",
     "type": "api_endpoint",
     "staged": false,
@@ -190,7 +190,7 @@
   },
   {
     "id": 79,
-    "path": "apis\\recipes\\2_get_by_slug_GET.xs",
+    "path": "apis/recipes/2_get_by_slug_GET.xs",
     "status": "unchanged",
     "type": "api_endpoint",
     "staged": false,
@@ -199,7 +199,7 @@
   },
   {
     "id": 80,
-    "path": "apis\\recipes\\3_trending_GET.xs",
+    "path": "apis/recipes/3_trending_GET.xs",
     "status": "unchanged",
     "type": "api_endpoint",
     "staged": false,
@@ -208,7 +208,7 @@
   },
   {
     "id": 85,
-    "path": "apis\\recipes\\4_top_rated_GET.xs",
+    "path": "apis/recipes/4_top_rated_GET.xs",
     "status": "unchanged",
     "type": "api_endpoint",
     "staged": false,
@@ -217,7 +217,7 @@
   },
   {
     "id": 86,
-    "path": "apis\\recipes\\5_search_GET.xs",
+    "path": "apis/recipes/5_search_GET.xs",
     "status": "unchanged",
     "type": "api_endpoint",
     "staged": false,
@@ -226,7 +226,7 @@
   },
   {
     "id": 91,
-    "path": "apis\\recipes\\6_stats_GET.xs",
+    "path": "apis/recipes/6_stats_GET.xs",
     "status": "unchanged",
     "type": "api_endpoint",
     "staged": false,
@@ -235,7 +235,7 @@
   },
   {
     "id": 60,
-    "path": "apis\\cuisines\\api_group.xs",
+    "path": "apis/cuisines/api_group.xs",
     "status": "unchanged",
     "type": "api_group",
     "staged": false,
@@ -244,7 +244,7 @@
   },
   {
     "id": 81,
-    "path": "apis\\cuisines\\1_list_GET.xs",
+    "path": "apis/cuisines/1_list_GET.xs",
     "status": "unchanged",
     "type": "api_endpoint",
     "staged": false,
@@ -253,7 +253,7 @@
   },
   {
     "id": 87,
-    "path": "apis\\cuisines\\2_recipes_GET.xs",
+    "path": "apis/cuisines/2_recipes_GET.xs",
     "status": "unchanged",
     "type": "api_endpoint",
     "staged": false,
@@ -262,7 +262,7 @@
   },
   {
     "id": 61,
-    "path": "apis\\reviews\\api_group.xs",
+    "path": "apis/reviews/api_group.xs",
     "status": "unchanged",
     "type": "api_group",
     "staged": false,
@@ -271,7 +271,7 @@
   },
   {
     "id": 88,
-    "path": "apis\\reviews\\1_submit_POST.xs",
+    "path": "apis/reviews/1_submit_POST.xs",
     "status": "unchanged",
     "type": "api_endpoint",
     "staged": false,
@@ -280,7 +280,7 @@
   },
   {
     "id": 89,
-    "path": "apis\\reviews\\2_list_GET.xs",
+    "path": "apis/reviews/2_list_GET.xs",
     "status": "unchanged",
     "type": "api_endpoint",
     "staged": false,
@@ -289,7 +289,7 @@
   },
   {
     "id": 62,
-    "path": "apis\\ingredients\\api_group.xs",
+    "path": "apis/ingredients/api_group.xs",
     "status": "unchanged",
     "type": "api_group",
     "staged": false,
@@ -298,7 +298,7 @@
   },
   {
     "id": 90,
-    "path": "apis\\ingredients\\1_list_GET.xs",
+    "path": "apis/ingredients/1_list_GET.xs",
     "status": "unchanged",
     "type": "api_endpoint",
     "staged": false,
@@ -307,7 +307,7 @@
   },
   {
     "id": 63,
-    "path": "apis\\allergies\\api_group.xs",
+    "path": "apis/allergies/api_group.xs",
     "status": "unchanged",
     "type": "api_group",
     "staged": false,
@@ -316,7 +316,7 @@
   },
   {
     "id": 82,
-    "path": "apis\\allergies\\1_list_GET.xs",
+    "path": "apis/allergies/1_list_GET.xs",
     "status": "unchanged",
     "type": "api_endpoint",
     "staged": false,
@@ -325,11 +325,46 @@
   },
   {
     "id": 4,
-    "path": "tasks\\1_update_trending_scores.xs",
+    "path": "tasks/1_update_trending_scores.xs",
     "status": "unchanged",
     "type": "task",
     "staged": false,
     "sha256": "85d96790c26762ed9750e080fb6500863148e775957da5b7ec7fbee3adef5cc3",
     "original": "Ly8gQmFja2dyb3VuZCB0YXNrIHRvIHVwZGF0ZSByZWNpcGUgdHJlbmRpbmcgc2NvcmVzIGJhc2VkIG9uIHZpZXcgaGlzdG9yeQovLyBSdW5zIGV2ZXJ5IDI0IGhvdXJzIHRvIGNhbGN1bGF0ZSB2aWV3ZWRfc2NvcmUgZm9yIGVhY2ggcmVjaXBlCnRhc2sgdXBkYXRlX3RyZW5kaW5nX3Njb3JlcyB7CiAgc3RhY2sgewogICAgLy8gRGVmaW5lIHRpbWUgd2luZG93cyBmb3IgdHJlbmRpbmcgY2FsY3VsYXRpb24KICAgIC8vIFJlY2VudCB2aWV3cyBhcmUgd2VpZ2h0ZWQgbW9yZSBoZWF2aWx5CiAgICB2YXIgJG5vdyB7CiAgICAgIHZhbHVlID0gbm93CiAgICB9CiAgCiAgICB2YXIgJHdpbmRvd183X2RheXMgewogICAgICB2YWx1ZSA9ICRub3cKICAgICAgICB8dHJhbnNmb3JtX3RpbWVzdGFtcDoiLTcgZGF5cyI6IlVUQyIKICAgIH0KICAKICAgIHZhciAkd2luZG93XzMwX2RheXMgewogICAgICB2YWx1ZSA9ICRub3cKICAgICAgICB8dHJhbnNmb3JtX3RpbWVzdGFtcDoiLTMwIGRheXMiOiJVVEMiCiAgICB9CiAgCiAgICAvLyBHZXQgYWxsIHB1Ymxpc2hlZCByZWNpcGVzCiAgICBkYi5xdWVyeSByZWNpcGUgewogICAgICB3aGVyZSA9IGAkZGIucmVjaXBlLmlzX3B1Ymxpc2hlZGAKICAgICAgcmV0dXJuID0ge3R5cGU6ICJsaXN0In0KICAgIH0gYXMgJHJlY2lwZXMKICAKICAgIGRlYnVnLmxvZyB7CiAgICAgIHZhbHVlID0gIlN0YXJ0aW5nIHRyZW5kaW5nIHNjb3JlIHVwZGF0ZSBmb3IgcmVjaXBlcyIKICAgIH0KICAKICAgIHZhciAkdXBkYXRlZF9jb3VudCB7CiAgICAgIHZhbHVlID0gMAogICAgfQogIAogICAgLy8gUHJvY2VzcyBlYWNoIHJlY2lwZQogICAgZm9yZWFjaCAoJHJlY2lwZXMpIHsKICAgICAgZWFjaCBhcyAkcmVjaXBlIHsKICAgICAgICAvLyBHZXQgdmlld3MgZnJvbSBsYXN0IDcgZGF5cyAoaGlnaGVyIHdlaWdodCkKICAgICAgICBkYi5xdWVyeSByZWNpcGVfdmlld19oaXN0b3J5IHsKICAgICAgICAgIHdoZXJlID0gJGRiLnJlY2lwZV92aWV3X2hpc3RvcnkucmVjaXBlX2lkID09ICRyZWNpcGUuaWQgJiYgJGRiLnJlY2lwZV92aWV3X2hpc3Rvcnkudmlld2VkX2F0ID49ICR3aW5kb3dfN19kYXlzCiAgICAgICAgICByZXR1cm4gPSB7dHlwZTogImxpc3QifQogICAgICAgIH0gYXMgJHJlY2VudF92aWV3cwogICAgICAKICAgICAgICAvLyBHZXQgdmlld3MgZnJvbSA3LTMwIGRheXMgYWdvIChsb3dlciB3ZWlnaHQpCiAgICAgICAgZGIucXVlcnkgcmVjaXBlX3ZpZXdfaGlzdG9yeSB7CiAgICAgICAgICB3aGVyZSA9ICRkYi5yZWNpcGVfdmlld19oaXN0b3J5LnJlY2lwZV9pZCA9PSAkcmVjaXBlLmlkICYmICRkYi5yZWNpcGVfdmlld19oaXN0b3J5LnZpZXdlZF9hdCA+PSAkd2luZG93XzMwX2RheXMgJiYgJGRiLnJlY2lwZV92aWV3X2hpc3Rvcnkudmlld2VkX2F0IDwgJHdpbmRvd183X2RheXMKICAgICAgICAgIHJldHVybiA9IHt0eXBlOiAibGlzdCJ9CiAgICAgICAgfSBhcyAkb2xkZXJfdmlld3MKICAgICAgCiAgICAgICAgLy8gQ2FsY3VsYXRlIHRyZW5kaW5nIHNjb3JlCiAgICAgICAgLy8gRm9ybXVsYTogKHJlY2VudF92aWV3cyAqIDMpICsgKG9sZGVyX3ZpZXdzICogMSkKICAgICAgICAvLyBSZWNlbnQgdmlld3MgYXJlIHdlaWdodGVkIDN4IG1vcmUgdGhhbiBvbGRlciB2aWV3cwogICAgICAgIHZhciAkcmVjZW50X2NvdW50IHsKICAgICAgICAgIHZhbHVlID0gJHJlY2VudF92aWV3c3xjb3VudAogICAgICAgIH0KICAgICAgCiAgICAgICAgdmFyICRvbGRlcl9jb3VudCB7CiAgICAgICAgICB2YWx1ZSA9ICRvbGRlcl92aWV3c3xjb3VudAogICAgICAgIH0KICAgICAgCiAgICAgICAgdmFyICR0cmVuZGluZ19zY29yZSB7CiAgICAgICAgICB2YWx1ZSA9ICgkcmVjZW50X2NvdW50ICogMykgKyAkb2xkZXJfY291bnQKICAgICAgICB9CiAgICAgIAogICAgICAgIC8vIFVwZGF0ZSByZWNpcGUgd2l0aCBuZXcgdHJlbmRpbmcgc2NvcmUKICAgICAgICBkYi5lZGl0IHJlY2lwZSB7CiAgICAgICAgICBmaWVsZF9uYW1lID0gImlkIgogICAgICAgICAgZmllbGRfdmFsdWUgPSAkcmVjaXBlLmlkCiAgICAgICAgICBkYXRhID0ge3ZpZXdlZF9zY29yZTogJHRyZW5kaW5nX3Njb3JlfQogICAgICAgIH0KICAgICAgCiAgICAgICAgdmFyICR1cGRhdGVkX2NvdW50IHsKICAgICAgICAgIHZhbHVlID0gJHVwZGF0ZWRfY291bnQgKyAxCiAgICAgICAgfQogICAgICB9CiAgICB9CiAgCiAgICBkZWJ1Zy5sb2cgewogICAgICB2YWx1ZSA9ICJUcmVuZGluZyBzY29yZXMgdXBkYXRlZCBmb3IgcmVjaXBlcyIKICAgIH0KICAKICAgIGRlYnVnLmxvZyB7CiAgICAgIHZhbHVlID0gJHVwZGF0ZWRfY291bnQKICAgIH0KICB9CgogIHNjaGVkdWxlID0gW3tzdGFydHNfb246IDIwMjUtMTItMDYgMDA6MDA6MDArMDAwMCwgZnJlcTogODY0MDB9XQp9"
+  },
+  {
+    "id": 0,
+    "path": "tables/201_user.xs",
+    "status": "new",
+    "type": "table",
+    "staged": true
+  },
+  {
+    "id": 0,
+    "path": "tables/202_auction_car.xs",
+    "status": "new",
+    "type": "table",
+    "staged": true
+  },
+  {
+    "id": 0,
+    "path": "tables/203_bid.xs",
+    "status": "new",
+    "type": "table",
+    "staged": true
+  },
+  {
+    "id": 0,
+    "path": "tables/204_car_watchlist.xs",
+    "status": "new",
+    "type": "table",
+    "staged": true
+  },
+  {
+    "id": 0,
+    "path": "tables/205_auction_view_history.xs",
+    "status": "new",
+    "type": "table",
+    "staged": true
   }
 ]
