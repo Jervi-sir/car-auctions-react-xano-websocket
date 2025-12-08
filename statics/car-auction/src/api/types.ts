@@ -69,19 +69,19 @@ export interface AuctionDetail extends Auction {
   // We can add optional created_at to Auction or just here.
 }
 
-export interface PaginatedResponse<T> {
+export interface PaginatedResponse {
   page: number;
   per_page: number;
   total: number;
   total_pages?: number;
 }
 
-export interface AuctionListResponse extends PaginatedResponse<Auction> {
+export interface AuctionListResponse extends PaginatedResponse {
   auctions: Auction[];
   // total_pages is in example
 }
 
-export interface BidsListResponse extends PaginatedResponse<Bid> {
+export interface BidsListResponse extends PaginatedResponse {
   car_auction_id: number;
   auction_title: string;
   bids: Bid[];
@@ -103,7 +103,7 @@ export interface WatchlistEntry {
   added_at: number;
 }
 
-export interface WatchlistResponse extends PaginatedResponse<WatchlistEntry> {
+export interface WatchlistResponse extends PaginatedResponse {
   user_id: number;
   watchlist: WatchlistEntry[];
 }
