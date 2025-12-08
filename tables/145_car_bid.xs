@@ -1,42 +1,46 @@
 // Individual bids placed on auction cars
-table bid {
+table car_bid {
   auth = false
 
   schema {
     int id
-    
+  
     // Relations
-    int auction_car_id {
-      table = "auction_car"
+    int car_auction_id {
+      table = "car_auction"
     }
+  
     int bidder_id {
       table = "user"
     }
-    
+  
     // Bid details
     decimal amount filters=min:0
-    text currency?="USD"
-    
+  
+    text currency?=USD
+  
     // Bid status
     bool is_winning?
+  
     bool is_auto_bid?
     decimal max_auto_bid_amount? filters=min:0
-    
+  
     // Bid metadata
     text ip_address? filters=trim
+  
     text user_agent? filters=trim
-    text bid_source?="web" // web, mobile, api
-    
+    text bid_source?=web
+  
     // Validation
     bool is_valid?=true
+  
     text invalid_reason? filters=trim
-    
     timestamp created_at?=now
   }
 
   index = [
     {type: "primary", field: [{name: "id"}]}
-    {type: "btree", field: [{name: "auction_car_id", op: "asc"}]}
+    {type: "btree", field: [{name: "car_auction_id", op: "asc"}]}
     {type: "btree", field: [{name: "bidder_id", op: "asc"}]}
     {type: "btree", field: [{name: "amount", op: "desc"}]}
     {type: "btree", field: [{name: "is_winning", op: "asc"}]}
@@ -44,14 +48,14 @@ table bid {
     {
       type : "btree"
       field: [
-        {name: "auction_car_id", op: "asc"}
+        {name: "car_auction_id", op: "asc"}
         {name: "created_at", op: "desc"}
       ]
     }
     {
       type : "btree"
       field: [
-        {name: "auction_car_id", op: "asc"}
+        {name: "car_auction_id", op: "asc"}
         {name: "amount", op: "desc"}
       ]
     }

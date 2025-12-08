@@ -1,5 +1,5 @@
 // Seed recipe_ingredient junction table
-function seed_recipe_ingredients {
+function food_5_seed_recipe_ingredients {
   input {
   }
 

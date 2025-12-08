@@ -1,5 +1,5 @@
 // Seed recipe_review table with sample reviews
-function seed_recipe_reviews {
+function food_6_seed_recipe_reviews {
   input {
   }
 

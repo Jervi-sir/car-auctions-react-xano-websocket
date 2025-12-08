@@ -1,5 +1,5 @@
 // Seed cuisines table with popular cuisine types
-function seed_cuisines {
+function food_1_seed_cuisines {
   input {
   }
 

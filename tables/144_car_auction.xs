@@ -1,5 +1,5 @@
 // Auction car listings with specifications and bidding info
-table auction_car {
+table car_auction {
   auth = false
 
   schema {

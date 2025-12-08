@@ -1,5 +1,5 @@
 // Seed recipe_view_history table with sample view data
-function seed_recipe_view_history {
+function food_7_seed_recipe_view_history {
   input {
   }
 

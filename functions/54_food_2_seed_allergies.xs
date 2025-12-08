@@ -1,5 +1,5 @@
 // Seed allergies table with common allergens
-function seed_allergies {
+function food_2_seed_allergies {
   input {
   }
 

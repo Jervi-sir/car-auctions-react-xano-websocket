@@ -1,5 +1,5 @@
 // Seed ingredients table with common cooking ingredients
-function seed_ingredients {
+function food_3_seed_ingredients {
   input {
   }
 

@@ -1,5 +1,5 @@
 // Seed recipes table with sample recipes
-function seed_recipes {
+function food_4_seed_recipes {
   input {
   }
 
