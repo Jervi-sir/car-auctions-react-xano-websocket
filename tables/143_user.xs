@@ -20,11 +20,11 @@ table user {
   
     int total_wins? filters=min:0
     decimal total_spent? filters=min:0
+    text country? filters=trim
   
     // Location
     text city? filters=trim
   
-    text country? filters=trim
     timestamp created_at?=now
     timestamp updated_at?=now
   }

@@ -57,6 +57,10 @@ table car_auction {
       table = "user"
     }
   
+    int? created_by? {
+      table = "user"
+    }
+  
     timestamp created_at?=now
     timestamp updated_at?=now
   }

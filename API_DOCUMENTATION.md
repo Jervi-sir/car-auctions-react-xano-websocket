@@ -7,6 +7,8 @@ Complete API documentation for the Car Auction platform with React + Axios integ
 - [Authentication](#authentication)
 - [User API Endpoints](#user-api-endpoints)
 - [Car Auction API Endpoints](#car-auction-api-endpoints)
+- [My Auctions API Endpoints](#my-auctions-api-endpoints)
+- [User Profile API Endpoints](#user-profile-api-endpoints)
 - [React + Axios Setup](#react--axios-setup)
 - [Error Handling](#error-handling)
 
@@ -791,6 +793,1117 @@ function AuctionCountdown({ auction }) {
 }
 
 export default AuctionCountdown;
+```
+
+---
+
+## My Auctions API Endpoints
+
+These endpoints allow users to manage their posted auctions.
+
+### 1. Get My Posted Auctions
+
+Get a paginated list of auctions posted by the authenticated user.
+
+**Endpoint**: `GET /my-auctions/my-posted`
+
+**Headers**:
+```
+Authorization: Bearer {authToken}
+```
+
+**Query Parameters**:
+- `page` (optional, default: 1, min: 1) - Page number
+- `per_page` (optional, default: 20, min: 1, max: 100) - Items per page
+- `status` (optional, default: "all") - Filter by status: "all", "active", or "ended"
+
+**Example Request**:
+```
+GET /my-auctions/my-posted?page=1&per_page=20&status=active
+```
+
+**Response**:
+```json
+{
+  "auctions": [
+    {
+      "id": 1,
+      "title": "1967 Ford Mustang Fastback",
+      "subtitle": "Classic American Muscle",
+      "slug": "1967-ford-mustang-fastback",
+      "image_url": "https://...",
+      "year": 1967,
+      "mileage_km": 85000,
+      "fuel": "Gasoline",
+      "transmission": "Manual",
+      "location": "California, USA",
+      "starting_price": 45000,
+      "current_price": 52000,
+      "currency": "USD",
+      "auction_start": 1701234567890,
+      "auction_end": 1701320967890,
+      "is_active": true,
+      "is_sold": false,
+      "total_bids": 12,
+      "total_views": 456,
+      "total_watchers": 23,
+      "created_by": 5,
+      "created_at": 1701000000000
+    }
+  ],
+  "total": 15,
+  "page": 1,
+  "per_page": 20,
+  "total_pages": 1
+}
+```
+
+**React + Axios Example**:
+```javascript
+const getMyPostedAuctions = async (page = 1, perPage = 20, status = 'all') => {
+  try {
+    const token = localStorage.getItem('authToken');
+    
+    const response = await axios.get(
+      'https://your-xano-instance.com/api:FnuTavOE/my-auctions/my-posted',
+      {
+        params: {
+          page,
+          per_page: perPage,
+          status
+        },
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      }
+    );
+    
+    return response.data;
+  } catch (error) {
+    if (error.response?.status === 401) {
+      throw new Error('Authentication required');
+    }
+    throw error;
+  }
+};
+```
+
+---
+
+### 2. Delete Auction
+
+Delete an auction (only if owned by the user and has no bids).
+
+**Endpoint**: `DELETE /my-auctions/auction_id`
+
+**Headers**:
+```
+Authorization: Bearer {authToken}
+```
+
+**Request Body**:
+```json
+{
+  "auction_id": 1
+}
+```
+
+**Response (Success)**:
+```json
+{
+  "success": true,
+  "message": "Auction deleted successfully"
+}
+```
+
+**Error Responses**:
+- `404` - Auction not found
+- `403` - User doesn't own this auction
+- `409` - Cannot delete auction with existing bids
+
+**React + Axios Example**:
+```javascript
+const deleteAuction = async (auctionId) => {
+  try {
+    const token = localStorage.getItem('authToken');
+    
+    const response = await axios.delete(
+      'https://your-xano-instance.com/api:FnuTavOE/my-auctions/auction_id',
+      {
+        data: {
+          auction_id: auctionId
+        },
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      }
+    );
+    
+    return response.data;
+  } catch (error) {
+    if (error.response?.status === 409) {
+      throw new Error('Cannot delete auction with existing bids');
+    }
+    if (error.response?.status === 403) {
+      throw new Error('You do not have permission to delete this auction');
+    }
+    throw error;
+  }
+};
+```
+
+---
+
+### 3. Create Auction
+
+Create a new auction listing.
+
+**Endpoint**: `POST /my-auctions/create`
+
+**Headers**:
+```
+Authorization: Bearer {authToken}
+```
+
+**Request Body**:
+```json
+{
+  "title": "1967 Ford Mustang Fastback",
+  "subtitle": "Classic American Muscle",
+  "year": 1967,
+  "make": "Ford",
+  "model": "Mustang",
+  "mileage_km": 85000,
+  "fuel": "Gasoline",
+  "transmission": "Manual",
+  "location": "California, USA",
+  "starting_price": 45000,
+  "currency": "USD",
+  "auction_end": 1701320967890,
+  "description": "Stunning example of the iconic...",
+  "image_url": "https://...",
+  "engine": "V8 4.7L",
+  "power_hp": 271,
+  "color": "Highland Green",
+  "vin": "7R02C123456",
+  "previous_owners": 2,
+  "condition_report": "Excellent condition with...",
+  "features": ["Air Conditioning", "Power Steering", "Disc Brakes"]
+}
+```
+
+**Required Fields**:
+- `title` (text, trimmed)
+- `year` (integer, min: 1900, max: 2100)
+- `make` (text, trimmed)
+- `model` (text, trimmed)
+- `mileage_km` (integer, min: 0)
+- `fuel` (text, trimmed)
+- `transmission` (text, trimmed)
+- `location` (text, trimmed)
+- `starting_price` (decimal, min: 0)
+- `auction_end` (timestamp, must be in the future)
+- `image_url` (text)
+- `vin` (text, trimmed)
+
+**Optional Fields**:
+- `subtitle`, `currency` (default: "USD"), `description`, `engine`, `power_hp`, `color`, `previous_owners`, `condition_report`, `features`
+
+**Response**:
+```json
+{
+  "success": true,
+  "message": "Auction created successfully",
+  "auction": {
+    "id": 1,
+    "slug": "1967-ford-mustang-fastback-1701234567890",
+    "title": "1967 Ford Mustang Fastback",
+    "subtitle": "Classic American Muscle",
+    "image_url": "https://...",
+    "year": 1967,
+    "make": "Ford",
+    "model": "Mustang",
+    "mileage_km": 85000,
+    "fuel": "Gasoline",
+    "transmission": "Manual",
+    "location": "California, USA",
+    "starting_price": 45000,
+    "current_price": 45000,
+    "currency": "USD",
+    "auction_end": 1701320967890,
+    "description": "Stunning example of the iconic...",
+    "is_active": true,
+    "created_at": 1701234567890,
+    "created_by": 5
+  }
+}
+```
+
+**React + Axios Example**:
+```javascript
+const createAuction = async (auctionData) => {
+  try {
+    const token = localStorage.getItem('authToken');
+    
+    const response = await axios.post(
+      'https://your-xano-instance.com/api:FnuTavOE/my-auctions/create',
+      {
+        title: auctionData.title,
+        subtitle: auctionData.subtitle,
+        year: auctionData.year,
+        make: auctionData.make,
+        model: auctionData.model,
+        mileage_km: auctionData.mileage_km,
+        fuel: auctionData.fuel,
+        transmission: auctionData.transmission,
+        location: auctionData.location,
+        starting_price: auctionData.starting_price,
+        currency: auctionData.currency || 'USD',
+        auction_end: auctionData.auction_end,
+        description: auctionData.description,
+        image_url: auctionData.image_url,
+        engine: auctionData.engine,
+        power_hp: auctionData.power_hp,
+        color: auctionData.color,
+        vin: auctionData.vin,
+        previous_owners: auctionData.previous_owners,
+        condition_report: auctionData.condition_report,
+        features: auctionData.features
+      },
+      {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      }
+    );
+    
+    return response.data;
+  } catch (error) {
+    if (error.response?.data?.error) {
+      throw new Error(error.response.data.error);
+    }
+    throw error;
+  }
+};
+```
+
+---
+
+### 4. Get Auction for Editing
+
+Get auction details for editing (owner only).
+
+**Endpoint**: `GET /my-auctions/auction_id/edit`
+
+**Headers**:
+```
+Authorization: Bearer {authToken}
+```
+
+**Query Parameters**:
+- `auction_id` (required) - Auction ID
+
+**Example Request**:
+```
+GET /my-auctions/auction_id/edit?auction_id=1
+```
+
+**Response**:
+```json
+{
+  "id": 1,
+  "slug": "1967-ford-mustang-fastback-1701234567890",
+  "title": "1967 Ford Mustang Fastback",
+  "subtitle": "Classic American Muscle",
+  "image_url": "https://...",
+  "year": 1967,
+  "mileage_km": 85000,
+  "fuel": "Gasoline",
+  "transmission": "Manual",
+  "location": "California, USA",
+  "starting_price": 45000,
+  "current_price": 52000,
+  "currency": "USD",
+  "auction_end": 1701320967890,
+  "description": "Stunning example of the iconic...",
+  "engine": "V8 4.7L",
+  "power_hp": 271,
+  "color": "Highland Green",
+  "vin": "7R02C123456",
+  "previous_owners": 2,
+  "condition_report": "Excellent condition with...",
+  "features": ["Air Conditioning", "Power Steering", "Disc Brakes"],
+  "is_active": true,
+  "created_at": 1701234567890,
+  "created_by": 5
+}
+```
+
+**Error Responses**:
+- `404` - Auction not found
+- `403` - User doesn't own this auction
+
+**React + Axios Example**:
+```javascript
+const getAuctionForEdit = async (auctionId) => {
+  try {
+    const token = localStorage.getItem('authToken');
+    
+    const response = await axios.get(
+      'https://your-xano-instance.com/api:FnuTavOE/my-auctions/auction_id/edit',
+      {
+        params: {
+          auction_id: auctionId
+        },
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      }
+    );
+    
+    return response.data;
+  } catch (error) {
+    if (error.response?.status === 403) {
+      throw new Error('You do not have permission to edit this auction');
+    }
+    if (error.response?.status === 404) {
+      throw new Error('Auction not found');
+    }
+    throw error;
+  }
+};
+```
+
+---
+
+### 5. Update Auction
+
+Update an existing auction (owner only, with restrictions if bids exist).
+
+**Endpoint**: `PUT /my-auctions/auction_id`
+
+**Headers**:
+```
+Authorization: Bearer {authToken}
+```
+
+**Request Body**:
+```json
+{
+  "auction_id": 1,
+  "title": "Updated Title",
+  "subtitle": "Updated Subtitle",
+  "year": 1967,
+  "make": "Ford",
+  "model": "Mustang",
+  "mileage_km": 85000,
+  "fuel": "Gasoline",
+  "transmission": "Manual",
+  "location": "California, USA",
+  "auction_end": 1701420967890,
+  "description": "Updated description...",
+  "image_url": "https://...",
+  "gallery_images": ["https://...", "https://..."],
+  "engine": "V8 4.7L",
+  "power_hp": 271,
+  "color": "Highland Green",
+  "previous_owners": 2,
+  "condition_report": "Updated condition report...",
+  "features": ["Air Conditioning", "Power Steering"]
+}
+```
+
+**Required Fields**:
+- `auction_id` (integer)
+
+**Optional Fields** (all other fields are optional):
+- All fields from create auction are optional
+- Only provided fields will be updated
+
+**Restrictions**:
+- Cannot edit auctions that have ended
+- Cannot change `starting_price` or `currency` if bids exist
+- Can only extend `auction_end`, not shorten it
+
+**Response**:
+```json
+{
+  "success": true,
+  "message": "Auction updated successfully",
+  "auction": {
+    "id": 1,
+    "title": "Updated Title",
+    "subtitle": "Updated Subtitle",
+    "updated_at": 1701234567890
+  }
+}
+```
+
+**Error Responses**:
+- `404` - Auction not found
+- `403` - User doesn't own this auction or auction has ended
+- `409` - Cannot change restricted fields when bids exist
+
+**React + Axios Example**:
+```javascript
+const updateAuction = async (auctionId, updates) => {
+  try {
+    const token = localStorage.getItem('authToken');
+    
+    const response = await axios.put(
+      'https://your-xano-instance.com/api:FnuTavOE/my-auctions/auction_id',
+      {
+        auction_id: auctionId,
+        ...updates
+      },
+      {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      }
+    );
+    
+    return response.data;
+  } catch (error) {
+    if (error.response?.status === 409) {
+      throw new Error(error.response.data.error || 'Cannot update auction with existing bids');
+    }
+    if (error.response?.status === 403) {
+      throw new Error('Cannot edit an auction that has ended');
+    }
+    throw error;
+  }
+};
+```
+
+---
+
+### 6. Get Auction Statistics
+
+Get comprehensive statistics for an auction (owner only).
+
+**Endpoint**: `GET /my-auctions/auction_id/stats`
+
+**Headers**:
+```
+Authorization: Bearer {authToken}
+```
+
+**Query Parameters**:
+- `auction_id` (required) - Auction ID
+
+**Example Request**:
+```
+GET /my-auctions/auction_id/stats?auction_id=1
+```
+
+**Response**:
+```json
+{
+  "auction": {
+    "id": 1,
+    "slug": "1967-ford-mustang-fastback",
+    "title": "1967 Ford Mustang Fastback",
+    "subtitle": "Classic American Muscle",
+    "image_url": "https://...",
+    "starting_price": 45000,
+    "current_price": 52000,
+    "currency": "USD",
+    "is_active": true,
+    "auction_end": 1701320967890,
+    "created_at": 1701234567890
+  },
+  "metrics": {
+    "total_bids": 12,
+    "total_views": 456,
+    "unique_viewers": 234,
+    "watchlist_count": 23,
+    "price_increase": 7000,
+    "price_increase_percent": 15.56
+  },
+  "top_bidders": [
+    {
+      "user_id": 5,
+      "name": "Jane D.",
+      "bid_amount": 52000,
+      "bid_time": 1701318000000,
+      "rank": 1
+    },
+    {
+      "user_id": 8,
+      "name": "John S.",
+      "bid_amount": 51000,
+      "bid_time": 1701317000000,
+      "rank": 2
+    }
+  ],
+  "views_over_time": [
+    {
+      "date": "2025-12-01",
+      "views": 45
+    },
+    {
+      "date": "2025-12-02",
+      "views": 67
+    }
+  ],
+  "bids_over_time": [
+    {
+      "date": "2025-12-01",
+      "bids": 3
+    },
+    {
+      "date": "2025-12-02",
+      "bids": 5
+    }
+  ]
+}
+```
+
+**Error Responses**:
+- `404` - Auction not found
+- `403` - User doesn't own this auction
+
+**React + Axios Example**:
+```javascript
+const getAuctionStats = async (auctionId) => {
+  try {
+    const token = localStorage.getItem('authToken');
+    
+    const response = await axios.get(
+      'https://your-xano-instance.com/api:FnuTavOE/my-auctions/auction_id/stats',
+      {
+        params: {
+          auction_id: auctionId
+        },
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      }
+    );
+    
+    return response.data;
+  } catch (error) {
+    if (error.response?.status === 403) {
+      throw new Error('You do not have permission to view statistics for this auction');
+    }
+    throw error;
+  }
+};
+```
+
+**React Component Example with Charts**:
+```javascript
+import React, { useState, useEffect } from 'react';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+
+function AuctionStatsPage({ auctionId }) {
+  const [stats, setStats] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchStats = async () => {
+      try {
+        const data = await getAuctionStats(auctionId);
+        setStats(data);
+      } catch (error) {
+        console.error('Error fetching stats:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchStats();
+  }, [auctionId]);
+
+  if (loading) return <div>Loading...</div>;
+  if (!stats) return <div>No data available</div>;
+
+  return (
+    <div className="auction-stats">
+      <h1>{stats.auction.title}</h1>
+      
+      <div className="metrics-grid">
+        <div className="metric">
+          <h3>Total Bids</h3>
+          <p>{stats.metrics.total_bids}</p>
+        </div>
+        <div className="metric">
+          <h3>Total Views</h3>
+          <p>{stats.metrics.total_views}</p>
+        </div>
+        <div className="metric">
+          <h3>Unique Viewers</h3>
+          <p>{stats.metrics.unique_viewers}</p>
+        </div>
+        <div className="metric">
+          <h3>Watchers</h3>
+          <p>{stats.metrics.watchlist_count}</p>
+        </div>
+        <div className="metric">
+          <h3>Price Increase</h3>
+          <p>${stats.metrics.price_increase.toLocaleString()} ({stats.metrics.price_increase_percent.toFixed(2)}%)</p>
+        </div>
+      </div>
+
+      <div className="top-bidders">
+        <h2>Top Bidders</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Bidder</th>
+              <th>Amount</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            {stats.top_bidders.map(bidder => (
+              <tr key={bidder.user_id}>
+                <td>{bidder.rank}</td>
+                <td>{bidder.name}</td>
+                <td>${bidder.bid_amount.toLocaleString()}</td>
+                <td>{new Date(bidder.bid_time).toLocaleString()}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div className="charts">
+        <h2>Views Over Time</h2>
+        <LineChart width={600} height={300} data={stats.views_over_time}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="date" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Line type="monotone" dataKey="views" stroke="#8884d8" />
+        </LineChart>
+
+        <h2>Bids Over Time</h2>
+        <LineChart width={600} height={300} data={stats.bids_over_time}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="date" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Line type="monotone" dataKey="bids" stroke="#82ca9d" />
+        </LineChart>
+      </div>
+    </div>
+  );
+}
+
+export default AuctionStatsPage;
+```
+
+---
+
+## User Profile API Endpoints
+
+These endpoints allow users to manage their profile and account.
+
+### 1. Get User Profile
+
+Get the authenticated user's profile with statistics.
+
+**Endpoint**: `GET /user/profile`
+
+**Headers**:
+```
+Authorization: Bearer {authToken}
+```
+
+**Response**:
+```json
+{
+  "id": 5,
+  "name": "John Doe",
+  "email": "john@example.com",
+  "phone": "+1234567890",
+  "location": "New York, USA",
+  "avatar_url": "https://...",
+  "created_at": 1701000000000,
+  "statistics": {
+    "auctions_posted": 15,
+    "auctions_won": 3,
+    "total_bids": 47
+  }
+}
+```
+
+**React + Axios Example**:
+```javascript
+const getUserProfile = async () => {
+  try {
+    const token = localStorage.getItem('authToken');
+    
+    const response = await axios.get(
+      'https://your-xano-instance.com/api:4aZ5gqlM/user/profile',
+      {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      }
+    );
+    
+    return response.data;
+  } catch (error) {
+    if (error.response?.status === 401) {
+      throw new Error('Authentication required');
+    }
+    throw error;
+  }
+};
+```
+
+---
+
+### 2. Update User Profile
+
+Update the authenticated user's profile information.
+
+**Endpoint**: `PUT /user/profile`
+
+**Headers**:
+```
+Authorization: Bearer {authToken}
+```
+
+**Request Body**:
+```json
+{
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "phone": "+1234567890",
+  "city": "New York",
+  "country": "USA",
+  "avatar_url": "https://..."
+}
+```
+
+**All Fields Are Optional**:
+- `name` (text, trimmed, min 2 characters)
+- `email` (text, trimmed, lowercase, must be unique)
+- `phone` (text, trimmed)
+- `city` (text, trimmed)
+- `country` (text, trimmed)
+- `avatar_url` (text)
+
+**Response**:
+```json
+{
+  "success": true,
+  "message": "Profile updated successfully",
+  "user": {
+    "id": 5,
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "phone": "+1234567890",
+    "location": "New York, USA",
+    "avatar_url": "https://...",
+    "updated_at": 1701234567890
+  }
+}
+```
+
+**Error Responses**:
+- `400` - Name must be at least 2 characters
+- `409` - Email address is already in use
+
+**React + Axios Example**:
+```javascript
+const updateUserProfile = async (profileData) => {
+  try {
+    const token = localStorage.getItem('authToken');
+    
+    const response = await axios.put(
+      'https://your-xano-instance.com/api:4aZ5gqlM/user/profile',
+      {
+        name: profileData.name,
+        email: profileData.email,
+        phone: profileData.phone,
+        city: profileData.city,
+        country: profileData.country,
+        avatar_url: profileData.avatar_url
+      },
+      {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      }
+    );
+    
+    return response.data;
+  } catch (error) {
+    if (error.response?.status === 409) {
+      throw new Error('Email address is already in use');
+    }
+    if (error.response?.data?.error) {
+      throw new Error(error.response.data.error);
+    }
+    throw error;
+  }
+};
+```
+
+---
+
+### 3. Change Password
+
+Change the authenticated user's password.
+
+**Endpoint**: `PUT /user/password`
+
+**Headers**:
+```
+Authorization: Bearer {authToken}
+```
+
+**Request Body**:
+```json
+{
+  "current_password": "oldPassword123",
+  "new_password": "newSecurePassword456",
+  "confirm_password": "newSecurePassword456"
+}
+```
+
+**Required Fields**:
+- `current_password` (password)
+- `new_password` (password, min 8 characters)
+- `confirm_password` (password, must match new_password)
+
+**Validations**:
+- Current password must be correct
+- New password must be at least 8 characters
+- New password and confirm password must match
+- New password must be different from current password
+
+**Response**:
+```json
+{
+  "success": true,
+  "message": "Password changed successfully"
+}
+```
+
+**Error Responses**:
+- `401` - Current password is incorrect
+- `400` - New password must be at least 8 characters
+- `400` - Passwords do not match
+- `400` - New password must be different from current password
+
+**React + Axios Example**:
+```javascript
+const changePassword = async (currentPassword, newPassword, confirmPassword) => {
+  try {
+    const token = localStorage.getItem('authToken');
+    
+    const response = await axios.put(
+      'https://your-xano-instance.com/api:4aZ5gqlM/user/password',
+      {
+        current_password: currentPassword,
+        new_password: newPassword,
+        confirm_password: confirmPassword
+      },
+      {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      }
+    );
+    
+    return response.data;
+  } catch (error) {
+    if (error.response?.status === 401) {
+      throw new Error('Current password is incorrect');
+    }
+    if (error.response?.data?.error) {
+      throw new Error(error.response.data.error);
+    }
+    throw error;
+  }
+};
+```
+
+---
+
+### 4. Delete Account
+
+Permanently delete the authenticated user's account.
+
+**Endpoint**: `DELETE /user/account`
+
+**Headers**:
+```
+Authorization: Bearer {authToken}
+```
+
+**Request Body**:
+```json
+{
+  "password": "userPassword123",
+  "confirmation": "DELETE"
+}
+```
+
+**Required Fields**:
+- `password` (password) - User's current password for verification
+- `confirmation` (text) - Must be exactly "DELETE"
+
+**Validations**:
+- Password must be correct
+- Confirmation must be exactly "DELETE"
+- Cannot delete account with active auctions that have bids
+
+**What Gets Deleted**:
+- User's bids
+- User's watchlist entries
+- User's view history
+- User's auctions (if no bids exist)
+- User's auctions are deactivated (if bids exist)
+
+**Response**:
+```json
+{
+  "success": true,
+  "message": "Account deleted successfully"
+}
+```
+
+**Error Responses**:
+- `401` - Incorrect password
+- `400` - Confirmation must be exactly 'DELETE'
+- `409` - Cannot delete account with active auctions that have bids
+
+**React + Axios Example**:
+```javascript
+const deleteAccount = async (password, confirmation) => {
+  try {
+    const token = localStorage.getItem('authToken');
+    
+    const response = await axios.delete(
+      'https://your-xano-instance.com/api:4aZ5gqlM/user/account',
+      {
+        data: {
+          password: password,
+          confirmation: confirmation
+        },
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      }
+    );
+    
+    // Clear local storage and redirect
+    localStorage.removeItem('authToken');
+    
+    return response.data;
+  } catch (error) {
+    if (error.response?.status === 409) {
+      throw new Error('Cannot delete account with active auctions that have bids');
+    }
+    if (error.response?.status === 401) {
+      throw new Error('Incorrect password');
+    }
+    if (error.response?.data?.error) {
+      throw new Error(error.response.data.error);
+    }
+    throw error;
+  }
+};
+```
+
+**React Component Example with Confirmation Dialog**:
+```javascript
+import React, { useState } from 'react';
+
+function DeleteAccountForm() {
+  const [password, setPassword] = useState('');
+  const [confirmation, setConfirmation] = useState('');
+  const [showConfirmDialog, setShowConfirmDialog] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError('');
+
+    if (confirmation !== 'DELETE') {
+      setError('Please type DELETE to confirm');
+      return;
+    }
+
+    setShowConfirmDialog(true);
+  };
+
+  const confirmDelete = async () => {
+    try {
+      await deleteAccount(password, confirmation);
+      // Redirect to home page
+      window.location.href = '/';
+    } catch (error) {
+      setError(error.message);
+      setShowConfirmDialog(false);
+    }
+  };
+
+  return (
+    <div className="delete-account-form">
+      <h2>Delete Account</h2>
+      <p className="warning">
+        This action is permanent and cannot be undone. All your data will be deleted.
+      </p>
+
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label>Password</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <label>Type "DELETE" to confirm</label>
+          <input
+            type="text"
+            value={confirmation}
+            onChange={(e) => setConfirmation(e.target.value)}
+            placeholder="DELETE"
+            required
+          />
+        </div>
+
+        {error && <div className="error">{error}</div>}
+
+        <button type="submit" className="btn-danger">
+          Delete Account
+        </button>
+      </form>
+
+      {showConfirmDialog && (
+        <div className="modal">
+          <div className="modal-content">
+            <h3>Are you absolutely sure?</h3>
+            <p>This will permanently delete your account and all associated data.</p>
+            <div className="modal-actions">
+              <button onClick={() => setShowConfirmDialog(false)}>Cancel</button>
+              <button onClick={confirmDelete} className="btn-danger">
+                Yes, Delete My Account
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default DeleteAccountForm;
 ```
 
 ---
