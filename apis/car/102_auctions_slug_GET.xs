@@ -1,5 +1,7 @@
 // Get detailed auction car information by slug and log view
 query "auctions/slug" verb=GET {
+  auth = "user"
+
   input {
     text slug?
     int user_id?
@@ -11,6 +13,10 @@ query "auctions/slug" verb=GET {
       where = $db.car_auction.slug == $input.slug
       return = {type: "single"}
     } as $auction
+  
+    !return {
+      value = $env.$http_headers
+    }
   
     // Validate auction exists
     precondition ($auction != null) {
@@ -28,11 +34,11 @@ query "auctions/slug" verb=GET {
     // Log view to auction_view_history
     db.add car_auction_view_history {
       data = {
-        auction_car_id: $auction.id
-        user_id       : $input.user_id
-        ip_address    : $env.ip
-        user_agent    : $env.user_agent
-        referrer      : $env.referrer
+        car_auction_id: $auction.id
+        user_id       : $auth.id
+        ip_address    : $env.$remote_ip
+        user_agent    : $env.$http_headers.['User-Agent']
+        referrer      : $env.$http_headers.Referer
         view_source   : "web"
         created_at    : now
       }

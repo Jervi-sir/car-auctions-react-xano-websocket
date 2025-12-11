@@ -1,3 +1,36 @@
+design a production - ready public API around food, recipe, allergies system, a backend that will let developers be able to fetch the database, and filter them 
+follwing the Xanoscript knowkledge, lets create the database tables before doing anything, and please prefix these tables with number like 1_ 2_...to respect the relationships, also add history log for recipe, so later we can add a background task that will update the receipe column named viewed score, so later we can make an api that will list trending recipe
+again focus on database tables only
+
+make function for each table in order to seed the tables, please prefix these function with numbers 1_ ...
+
+good now for the seed_all_functions it inside it, to call an other function it supposed to be like this
+function.run seed_cuisines as $func1
+
+good, now i need 60 recipe.and more food and other tables
+
+create all necessary apis so we can let the user interact, also please see the example /apis/user/* how its been done regarding the grouping, do follow the structure and also check the docs .md files 
+
+good now for background tasks so every 24hours it checks view history, and it fille in the recipe the viewed_score 
+
+now generate me a md files as documention for the api, showcasing everything, good well documented
+
+----------------
+ /// notes
+- ai is adding a comment inside input{ // } and xano is crashing because of it 
+
+- when i do this 
+  where = $db.ingredient.category ==? $input.category 
+  && $db.ingredient.name includes $input.search 
+  && $db.ingredient.is_vegetarian ==? $input.is_vegetarian 
+  && $db.ingredient.is_vegan ==? $input.is_vegan
+  its not valid, 
+  i have to make them inline
+
+
+----------------
+----------------
+so far this project is about food recipe..
 now i want to add a total different field which is abput car bidding 
 follwoing this structure 
 ```
