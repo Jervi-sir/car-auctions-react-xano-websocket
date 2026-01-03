@@ -1,5 +1,7 @@
 // Submit a recipe review
 query submit verb=POST {
+  api_group = "reviews"
+
   input {
     int recipe_id filters=min:1
     text reviewer_name filters=trim
@@ -61,6 +63,6 @@ query submit verb=POST {
     }
   }
 
-  response = $response.""
+  response = $response[""]
   history = false
 }

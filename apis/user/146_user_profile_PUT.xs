@@ -1,5 +1,6 @@
 // Update user profile
 query "user/profile" verb=PUT {
+  api_group = "user"
   auth = "user"
 
   input {

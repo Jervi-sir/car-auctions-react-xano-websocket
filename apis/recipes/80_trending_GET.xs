@@ -1,5 +1,7 @@
 // Get trending recipes based on viewed_score
 query trending verb=GET {
+  api_group = "recipes"
+
   input {
     int page?=1 filters=min:1
     int per_page?=10 filters=min:1|max:50

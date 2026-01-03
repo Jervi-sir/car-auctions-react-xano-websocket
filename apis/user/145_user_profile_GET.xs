@@ -1,5 +1,6 @@
 // Get current user's profile
 query "user/profile" verb=GET {
+  api_group = "user"
   auth = "user"
 
   input {

@@ -1,4 +1,6 @@
 query "auth/login" verb=POST {
+  api_group = "user"
+
   input {
     email email filters=trim|lower
     text password? filters=trim

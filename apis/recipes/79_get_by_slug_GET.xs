@@ -1,5 +1,7 @@
 // Get a single recipe by slug with ingredients
 query get_by_slug verb=GET {
+  api_group = "recipes"
+
   input {
     text slug filters=trim|lower
   }
@@ -72,6 +74,6 @@ query get_by_slug verb=GET {
     }
   }
 
-  response = $response.""
+  response = $response[""]
   history = false
 }

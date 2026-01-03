@@ -1,5 +1,7 @@
 // Get recipe statistics
 query stats verb=GET {
+  api_group = "recipes"
+
   input {
     int recipe_id filters=min:1
   }

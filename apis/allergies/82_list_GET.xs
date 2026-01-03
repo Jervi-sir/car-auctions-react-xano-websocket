@@ -1,5 +1,7 @@
 // Get all allergies
 query list verb=GET {
+  api_group = "allergies"
+
   input {
   }
 

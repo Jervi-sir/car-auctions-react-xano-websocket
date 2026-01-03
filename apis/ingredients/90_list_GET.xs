@@ -1,5 +1,7 @@
 // Get all ingredients with filtering
 query list verb=GET {
+  api_group = "ingredients"
+
   input {
     int page?=1 filters=min:1
     int per_page?=50 filters=min:1|max:100

@@ -1,5 +1,7 @@
 // Finalize auction and determine winner when auction ends
 query "auctions/finalize" verb=POST {
+  api_group = "car"
+
   input {
     int car_auction_id
   }

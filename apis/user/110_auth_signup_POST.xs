@@ -1,5 +1,7 @@
 // User registration/signup endpoint
 query "auth/signup" verb=POST {
+  api_group = "user"
+
   input {
     text name filters=trim
     text email filters=trim|lower
@@ -48,5 +50,5 @@ query "auth/signup" verb=POST {
   }
 
   response = {authToken: $authToken}
-  history = false
+  history = 100
 }

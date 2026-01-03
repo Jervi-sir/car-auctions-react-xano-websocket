@@ -1,5 +1,6 @@
 // Change user password
 query "user/password" verb=PUT {
+  api_group = "user"
   auth = "user"
 
   input {

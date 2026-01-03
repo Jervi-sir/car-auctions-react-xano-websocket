@@ -1,5 +1,7 @@
 // Get bid history for a specific auction car
 query "auctions/bids" verb=GET {
+  api_group = "car"
+
   input {
     int car_auction_id
     int page?=1 filters=min:1

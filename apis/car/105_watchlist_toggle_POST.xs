@@ -1,5 +1,7 @@
 // Add or remove auction car from user's watchlist
 query "watchlist/toggle" verb=POST {
+  api_group = "car"
+
   input {
     int user_id
     int auction_car_id

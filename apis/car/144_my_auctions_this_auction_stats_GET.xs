@@ -1,5 +1,6 @@
 // Get comprehensive auction statistics (owner only)
 query "my-auctions/this-auction/stats" verb=GET {
+  api_group = "car"
   auth = "user"
 
   input {

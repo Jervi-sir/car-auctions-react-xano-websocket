@@ -1,5 +1,7 @@
 // Get all published recipes with filtering and pagination
 query list_recipes verb=GET {
+  api_group = "recipes"
+
   input {
     // Pagination
     int page?=1 filters=min:1

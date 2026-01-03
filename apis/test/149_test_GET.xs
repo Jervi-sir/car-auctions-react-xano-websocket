@@ -1,4 +1,5 @@
 query test verb=GET {
+  api_group = "test"
   auth = "user"
 
   input {

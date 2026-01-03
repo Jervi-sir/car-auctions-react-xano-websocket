@@ -1,5 +1,7 @@
 // Get recipes by cuisine
 query recipes verb=GET {
+  api_group = "cuisines"
+
   input {
     int cuisine_id filters=min:1
     int page?=1 filters=min:1
@@ -37,6 +39,6 @@ query recipes verb=GET {
     }
   }
 
-  response = $response.""
+  response = $response[""]
   history = false
 }

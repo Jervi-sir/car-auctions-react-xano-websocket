@@ -1,4 +1,6 @@
 query "auctions/restore" verb=POST {
+  api_group = "car"
+
   input {
     int car_auction_id
   }

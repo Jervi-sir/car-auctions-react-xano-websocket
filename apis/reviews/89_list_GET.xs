@@ -1,5 +1,7 @@
 // Get reviews for a recipe
 query list verb=GET {
+  api_group = "reviews"
+
   input {
     int recipe_id filters=min:1
     int page?=1 filters=min:1

@@ -1,5 +1,7 @@
 // Place a bid on an auction car
 query "bids/place" verb=POST {
+  api_group = "car"
+
   input {
     int car_auction_id
     int bidder_id

@@ -1,5 +1,7 @@
 // Get user's watchlist
 query "watchlist/list" verb=GET {
+  api_group = "car"
+
   input {
     int user_id
     int page?=1 filters=min:1

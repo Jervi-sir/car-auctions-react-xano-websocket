@@ -1,4 +1,6 @@
 query "auctions/update-end-date" verb=POST {
+  api_group = "car"
+
   input {
     int car_auction_id
   }

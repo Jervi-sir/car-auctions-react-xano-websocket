@@ -1,4 +1,5 @@
 query "user/account" verb=DELETE {
+  api_group = "user"
   auth = "user"
 
   input {

@@ -1,5 +1,6 @@
 // Create a new car auction listing
 query "my-auctions/this-auction" verb=PUT {
+  api_group = "car"
   auth = "user"
 
   input {

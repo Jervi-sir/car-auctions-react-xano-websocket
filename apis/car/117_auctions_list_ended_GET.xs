@@ -1,5 +1,7 @@
 // List available auction cars
 query "auctions/list-ended" verb=GET {
+  api_group = "car"
+
   input {
     int page?=1 filters=min:1
     int per_page?=20 filters=min:1|max:100

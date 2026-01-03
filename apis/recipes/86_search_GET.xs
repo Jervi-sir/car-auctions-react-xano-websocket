@@ -1,5 +1,7 @@
 // Search recipes by name or description
 query search verb=GET {
+  api_group = "recipes"
+
   input {
     text query filters=trim
     int page?=1 filters=min:1

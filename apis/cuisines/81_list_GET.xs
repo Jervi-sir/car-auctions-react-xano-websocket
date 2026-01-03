@@ -1,5 +1,7 @@
 // Get all cuisines
 query list verb=GET {
+  api_group = "cuisines"
+
   input {
   }
 

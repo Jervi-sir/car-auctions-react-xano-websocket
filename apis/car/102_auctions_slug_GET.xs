@@ -1,5 +1,6 @@
 // Get detailed auction car information by slug and log view
 query "auctions/slug" verb=GET {
+  api_group = "car"
   auth = "user"
 
   input {

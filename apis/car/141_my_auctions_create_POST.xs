@@ -1,25 +1,26 @@
 // Create a new car auction listing with detailed specifications
 query "my-auctions/create" verb=POST {
+  api_group = "car"
   auth = "user"
 
   input {
     // Title of the auction listing
-    text title filters=trim
+    text title? filters=trim
   
     // Subtitle of the listing
     text subtitle? filters=trim
   
     // Manufacturing year
-    int year
+    int year?
   
     // Mileage in KM
-    int mileage_km
+    int mileage_km?
   
     // Fuel type
-    text fuel
+    text fuel?
   
     // Transmission type
-    text transmission
+    text transmission?
   
     // Physical location of the car
     text location
@@ -34,7 +35,7 @@ query "my-auctions/create" verb=POST {
     text currency?=USD
   
     // Start time of the auction
-    timestamp auction_start
+    timestamp auction_start?
   
     // End time of the auction
     timestamp auction_end
@@ -50,13 +51,13 @@ query "my-auctions/create" verb=POST {
   
     // New fields as per plan
     // Exterior and interior colors
-    text[] colors
+    text[] colors?
   
     // Engine type
-    enum engine
+    enum engine?
   
     // Engine power in horsepower
-    int power_hp
+    int power_hp?
   
     // Detailed condition report
     text condition_report?
