@@ -29,8 +29,8 @@ query "watchlist/list" verb=GET {
         db.query car_watchlist {
           join = {
             auction_car: {
-              table: ""
-              where: $db.car_watchlist.auction_car_id == $db.auction_car.id && $db.auction_car.is_active && ($db.auction_car.is_sold != true)
+              table: "car_auction"
+              where: $db.car_watchlist.car_auction_id == $db.auction_car.id && $db.auction_car.is_active && ($db.auction_car.is_sold != true)
             }
           }
         
@@ -54,7 +54,7 @@ query "watchlist/list" verb=GET {
           join = {
             auction_car: {
               table: ""
-              where: $db.car_watchlist.auction_car_id == $db.auction_car.id
+              where: $db.car_watchlist.car_auction_id == $db.auction_car.id
             }
           }
         

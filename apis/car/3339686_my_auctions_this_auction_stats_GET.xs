@@ -83,7 +83,7 @@ query "my-auctions/this-auction/stats" verb=GET {
         }
       
         // Get bidder info
-        db.get "" {
+        db.get user {
           field_name = "id"
           field_value = $bid.bidder_id
         } as $bidder

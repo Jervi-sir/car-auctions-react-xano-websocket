@@ -1,7 +1,6 @@
 // List available auction cars
-query "auctions/list-ended" verb=GET {
+query "auctions/list" verb=GET {
   api_group = "car"
-  auth = "user"
 
   input {
     int page?=1 filters=min:1
@@ -10,7 +9,7 @@ query "auctions/list-ended" verb=GET {
 
   stack {
     db.query car_auction {
-      where = `$db.car_auction.is_sold`
+      where = $db.car_auction.is_active && $db.car_auction.is_sold == false
       sort = {auction_end: "asc"}
       return = {
         type  : "list"

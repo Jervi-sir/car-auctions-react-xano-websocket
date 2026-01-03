@@ -1,7 +1,6 @@
 // Get bid history for a specific auction car
 query "auctions/bids" verb=GET {
   api_group = "car"
-  auth = "user"
 
   input {
     int car_auction_id
@@ -25,7 +24,7 @@ query "auctions/bids" verb=GET {
     // Query bids with bidder info
     db.query car_bid {
       join = {
-        user: {table: "", where: $db.car_bid.bidder_id == $db.user.id}
+        user: {table: "user", where: $db.car_bid.bidder_id == $db.user.id}
       }
     
       where = $db.car_bid.car_auction_id == $input.car_auction_id && $db.car_bid.is_valid ==? $input.valid_only
@@ -58,5 +57,5 @@ query "auctions/bids" verb=GET {
   }
 
   response = $response_data
-  history = false
+  history = 100
 }

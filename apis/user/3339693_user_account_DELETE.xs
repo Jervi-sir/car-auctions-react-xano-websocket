@@ -9,7 +9,7 @@ query "user/account" verb=DELETE {
 
   stack {
     // Get current user
-    db.get "" {
+    db.get user {
       field_name = "id"
       field_value = $auth.id
     } as $user

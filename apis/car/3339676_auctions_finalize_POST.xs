@@ -67,12 +67,12 @@ query "auctions/finalize" verb=POST {
             }
           
             // Update winner's statistics
-            db.get "" {
+            db.get user {
               field_name = "id"
               field_value = $winning_bid.bidder_id
             } as $winner
           
-            db.edit "" {
+            db.edit car_bid {
               field_name = "id"
               field_value = $winning_bid.bidder_id
               data = {
@@ -110,12 +110,12 @@ query "auctions/finalize" verb=POST {
             }
           
             // Update winner's statistics
-            db.get "" {
+            db.get user {
               field_name = "id"
               field_value = $winning_bid.bidder_id
             } as $winner
           
-            db.edit "" {
+            db.edit car_bid {
               field_name = "id"
               field_value = $winning_bid.bidder_id
               data = {

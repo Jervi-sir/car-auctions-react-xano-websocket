@@ -43,7 +43,7 @@ query "bids/place" verb=POST {
     }
   
     // Get bidder
-    db.get "" {
+    db.get user {
       field_name = "id"
       field_value = $input.bidder_id
     } as $bidder
@@ -107,7 +107,7 @@ query "bids/place" verb=POST {
     }
   
     // Update bidder stats
-    db.edit "" {
+    db.edit user {
       field_name = "id"
       field_value = $input.bidder_id
       data = {total_bids: $bidder.total_bids + 1, updated_at: now}

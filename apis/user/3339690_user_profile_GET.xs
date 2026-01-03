@@ -8,7 +8,7 @@ query "user/profile" verb=GET {
 
   stack {
     // Get user
-    db.get "" {
+    db.get user {
       field_name = "id"
       field_value = $auth.id
     } as $user

@@ -13,7 +13,7 @@ query "watchlist/toggle" verb=POST {
 
   stack {
     // Validate user exists
-    db.get "" {
+    db.get user {
       field_name = "id"
       field_value = $input.user_id
     } as $user
@@ -24,7 +24,7 @@ query "watchlist/toggle" verb=POST {
     }
   
     // Validate auction exists
-    db.get "" {
+    db.get car_auction {
       field_name = "id"
       field_value = $input.auction_car_id
     } as $auction
@@ -36,7 +36,7 @@ query "watchlist/toggle" verb=POST {
   
     // Check if already in watchlist
     db.query car_watchlist {
-      where = $db.car_watchlist.user_id == $input.user_id && $db.car_watchlist.auction_car_id == $input.auction_car_id
+      where = $db.car_watchlist.user_id == $input.user_id && $db.car_watchlist.car_auction_id == $input.auction_car_id
       return = {type: "single"}
     } as $existing_watchlist
   
@@ -50,7 +50,7 @@ query "watchlist/toggle" verb=POST {
         }
       
         // Decrement watcher count
-        db.edit "" {
+        db.edit car_auction {
           field_name = "id"
           field_value = $input.auction_car_id
           data = {total_watchers: $auction.total_watchers - 1}
@@ -66,7 +66,7 @@ query "watchlist/toggle" verb=POST {
         db.add car_watchlist {
           data = {
             user_id              : $input.user_id
-            auction_car_id       : $input.auction_car_id
+            car_auction_id       : $input.auction_car_id
             notify_on_new_bid    : $input.notify_on_new_bid
             notify_on_price_drop : $input.notify_on_price_drop
             notify_on_ending_soon: $input.notify_on_ending_soon
@@ -75,7 +75,7 @@ query "watchlist/toggle" verb=POST {
         }
       
         // Increment watcher count
-        db.edit "" {
+        db.edit car_auction {
           field_name = "id"
           field_value = $input.auction_car_id
           data = {total_watchers: $auction.total_watchers + 1}
@@ -93,7 +93,7 @@ query "watchlist/toggle" verb=POST {
         success       : true
         action        : $action
         user_id       : $input.user_id
-        auction_car_id: $input.auction_car_id
+        car_auction_id: $input.auction_car_id
         auction_title : $auction.title
       }
     }
