@@ -1,7 +1,6 @@
 // Get user's posted auctions
 query "my-auctions/my-posted" verb=GET {
   api_group = "car"
-  auth = "user"
 
   input {
     int page?=1 filters=min:1

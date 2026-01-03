@@ -7,7 +7,7 @@ table car_watchlist {
   
     // Relations
     int user_id {
-      table = "user"
+      table = ""
     }
   
     int car_auction_id {

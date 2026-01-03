@@ -35,13 +35,7 @@ query "watchlist/list" verb=GET {
         
           where = $db.car_watchlist.user_id == $input.user_id
           sort = {created_at: "desc"}
-          eval = {
-            watchlist_id : $db.car_watchlist.id
-            auction      : $db.{}
-            notifications: $db.{}
-            added_at     : $db.car_watchlist.created_at
-          }
-        
+          eval = {added_at: $db.car_watchlist.created_at}
           return = {
             type  : "list"
             paging: {
@@ -65,13 +59,7 @@ query "watchlist/list" verb=GET {
         
           where = $db.car_watchlist.user_id == $input.user_id
           sort = {created_at: "desc"}
-          eval = {
-            watchlist_id : $db.car_watchlist.id
-            auction      : $db.{}
-            notifications: $db.{}
-            added_at     : $db.car_watchlist.created_at
-          }
-        
+          eval = {added_at: $db.car_watchlist.created_at}
           return = {
             type  : "list"
             paging: {

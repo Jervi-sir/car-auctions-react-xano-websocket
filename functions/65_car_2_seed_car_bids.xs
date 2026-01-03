@@ -14,15 +14,15 @@ function car_2_seed_car_bids {
       return = {type: "list", paging: {page: 1, per_page: 5}}
     } as $auctions
   
-    db.query user {
+    db.query "" {
       return = {type: "list", paging: {page: 1, per_page: 8}}
     } as $users
   
     // Bids for Auction 1 (Porsche 911)
     db.add car_bid {
       data = {
-        car_auction_id: $auctions.items.0.id
-        bidder_id     : $users.items.0.id
+        car_auction_id: $auctions.items[0].id
+        bidder_id     : $users.items[0].id
         amount        : 155000
         currency      : "USD"
         is_winning    : false
@@ -35,8 +35,8 @@ function car_2_seed_car_bids {
   
     db.add car_bid {
       data = {
-        car_auction_id: $auctions.items.0.id
-        bidder_id     : $users.items.1.id
+        car_auction_id: $auctions.items[0].id
+        bidder_id     : $users.items[1].id
         amount        : 160000
         currency      : "USD"
         is_winning    : false
@@ -49,8 +49,8 @@ function car_2_seed_car_bids {
   
     db.add car_bid {
       data = {
-        car_auction_id: $auctions.items.0.id
-        bidder_id     : $users.items.2.id
+        car_auction_id: $auctions.items[0].id
+        bidder_id     : $users.items[2].id
         amount        : 165000
         currency      : "USD"
         is_winning    : true
@@ -64,8 +64,8 @@ function car_2_seed_car_bids {
     // Bids for Auction 2 (Ferrari F40)
     db.add car_bid {
       data = {
-        car_auction_id: $auctions.items.1.id
-        bidder_id     : $users.items.3.id
+        car_auction_id: $auctions.items[1].id
+        bidder_id     : $users.items[3].id
         amount        : 1250000
         currency      : "USD"
         is_winning    : false
@@ -78,8 +78,8 @@ function car_2_seed_car_bids {
   
     db.add car_bid {
       data = {
-        car_auction_id     : $auctions.items.1.id
-        bidder_id          : $users.items.4.id
+        car_auction_id     : $auctions.items[1].id
+        bidder_id          : $users.items[4].id
         amount             : 1300000
         currency           : "USD"
         is_winning         : false
@@ -93,8 +93,8 @@ function car_2_seed_car_bids {
   
     db.add car_bid {
       data = {
-        car_auction_id: $auctions.items.1.id
-        bidder_id     : $users.items.6.id
+        car_auction_id: $auctions.items[1].id
+        bidder_id     : $users.items[6].id
         amount        : 1350000
         currency      : "USD"
         is_winning    : true
@@ -108,8 +108,8 @@ function car_2_seed_car_bids {
     // Bids for Auction 3 (Mercedes 300SL)
     db.add car_bid {
       data = {
-        car_auction_id: $auctions.items.2.id
-        bidder_id     : $users.items.1.id
+        car_auction_id: $auctions.items[2].id
+        bidder_id     : $users.items[1].id
         amount        : 820000
         currency      : "USD"
         is_winning    : false
@@ -122,8 +122,8 @@ function car_2_seed_car_bids {
   
     db.add car_bid {
       data = {
-        car_auction_id: $auctions.items.2.id
-        bidder_id     : $users.items.5.id
+        car_auction_id: $auctions.items[2].id
+        bidder_id     : $users.items[5].id
         amount        : 850000
         currency      : "USD"
         is_winning    : true
@@ -137,8 +137,8 @@ function car_2_seed_car_bids {
     // Bids for Auction 4 (Lamborghini Countach)
     db.add car_bid {
       data = {
-        car_auction_id: $auctions.items.3.id
-        bidder_id     : $users.items.7.id
+        car_auction_id: $auctions.items[3].id
+        bidder_id     : $users.items[7].id
         amount        : 420000
         currency      : "USD"
         is_winning    : false
@@ -151,8 +151,8 @@ function car_2_seed_car_bids {
   
     db.add car_bid {
       data = {
-        car_auction_id     : $auctions.items.3.id
-        bidder_id          : $users.items.0.id
+        car_auction_id     : $auctions.items[3].id
+        bidder_id          : $users.items[0].id
         amount             : 440000
         currency           : "USD"
         is_winning         : false
@@ -166,8 +166,8 @@ function car_2_seed_car_bids {
   
     db.add car_bid {
       data = {
-        car_auction_id: $auctions.items.3.id
-        bidder_id     : $users.items.3.id
+        car_auction_id: $auctions.items[3].id
+        bidder_id     : $users.items[3].id
         amount        : 460000
         currency      : "USD"
         is_winning    : true
@@ -181,8 +181,8 @@ function car_2_seed_car_bids {
     // Bids for Auction 5 (Jaguar E-Type)
     db.add car_bid {
       data = {
-        car_auction_id: $auctions.items.4.id
-        bidder_id     : $users.items.2.id
+        car_auction_id: $auctions.items[4].id
+        bidder_id     : $users.items[2].id
         amount        : 185000
         currency      : "USD"
         is_winning    : false
@@ -195,8 +195,8 @@ function car_2_seed_car_bids {
   
     db.add car_bid {
       data = {
-        car_auction_id: $auctions.items.4.id
-        bidder_id     : $users.items.4.id
+        car_auction_id: $auctions.items[4].id
+        bidder_id     : $users.items[4].id
         amount        : 195000
         currency      : "USD"
         is_winning    : true

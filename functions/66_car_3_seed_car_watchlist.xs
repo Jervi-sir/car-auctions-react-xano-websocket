@@ -14,15 +14,15 @@ function car_3_seed_car_watchlist {
       return = {type: "list", paging: {page: 1, per_page: 5}}
     } as $auctions
   
-    db.query user {
+    db.query "" {
       return = {type: "list", paging: {page: 1, per_page: 8}}
     } as $users
   
     // User 1 watching Porsche and Ferrari
     db.add car_watchlist {
       data = {
-        user_id              : $users.items.0.id
-        car_auction_id       : $auctions.items.0.id
+        user_id              : $users.items[0].id
+        car_auction_id       : $auctions.items[0].id
         notify_on_new_bid    : true
         notify_on_price_drop : true
         notify_on_ending_soon: true
@@ -32,8 +32,8 @@ function car_3_seed_car_watchlist {
   
     db.add car_watchlist {
       data = {
-        user_id              : $users.items.0.id
-        car_auction_id       : $auctions.items.1.id
+        user_id              : $users.items[0].id
+        car_auction_id       : $auctions.items[1].id
         notify_on_new_bid    : true
         notify_on_price_drop : false
         notify_on_ending_soon: true
@@ -44,8 +44,8 @@ function car_3_seed_car_watchlist {
     // User 2 watching Mercedes and Jaguar
     db.add car_watchlist {
       data = {
-        user_id              : $users.items.1.id
-        car_auction_id       : $auctions.items.2.id
+        user_id              : $users.items[1].id
+        car_auction_id       : $auctions.items[2].id
         notify_on_new_bid    : true
         notify_on_price_drop : true
         notify_on_ending_soon: true
@@ -55,8 +55,8 @@ function car_3_seed_car_watchlist {
   
     db.add car_watchlist {
       data = {
-        user_id              : $users.items.1.id
-        car_auction_id       : $auctions.items.4.id
+        user_id              : $users.items[1].id
+        car_auction_id       : $auctions.items[4].id
         notify_on_new_bid    : false
         notify_on_price_drop : true
         notify_on_ending_soon: true
@@ -67,8 +67,8 @@ function car_3_seed_car_watchlist {
     // User 3 watching Lamborghini
     db.add car_watchlist {
       data = {
-        user_id              : $users.items.2.id
-        car_auction_id       : $auctions.items.3.id
+        user_id              : $users.items[2].id
+        car_auction_id       : $auctions.items[3].id
         notify_on_new_bid    : true
         notify_on_price_drop : true
         notify_on_ending_soon: true
@@ -79,8 +79,8 @@ function car_3_seed_car_watchlist {
     // User 4 watching Ferrari and Mercedes
     db.add car_watchlist {
       data = {
-        user_id              : $users.items.3.id
-        car_auction_id       : $auctions.items.1.id
+        user_id              : $users.items[3].id
+        car_auction_id       : $auctions.items[1].id
         notify_on_new_bid    : true
         notify_on_price_drop : true
         notify_on_ending_soon: true
@@ -90,8 +90,8 @@ function car_3_seed_car_watchlist {
   
     db.add car_watchlist {
       data = {
-        user_id              : $users.items.3.id
-        car_auction_id       : $auctions.items.2.id
+        user_id              : $users.items[3].id
+        car_auction_id       : $auctions.items[2].id
         notify_on_new_bid    : true
         notify_on_price_drop : false
         notify_on_ending_soon: false
@@ -102,8 +102,8 @@ function car_3_seed_car_watchlist {
     // User 5 watching Porsche and Lamborghini
     db.add car_watchlist {
       data = {
-        user_id              : $users.items.4.id
-        car_auction_id       : $auctions.items.0.id
+        user_id              : $users.items[4].id
+        car_auction_id       : $auctions.items[0].id
         notify_on_new_bid    : false
         notify_on_price_drop : true
         notify_on_ending_soon: true
@@ -113,8 +113,8 @@ function car_3_seed_car_watchlist {
   
     db.add car_watchlist {
       data = {
-        user_id              : $users.items.4.id
-        car_auction_id       : $auctions.items.3.id
+        user_id              : $users.items[4].id
+        car_auction_id       : $auctions.items[3].id
         notify_on_new_bid    : true
         notify_on_price_drop : true
         notify_on_ending_soon: true
@@ -125,8 +125,8 @@ function car_3_seed_car_watchlist {
     // User 6 watching Jaguar
     db.add car_watchlist {
       data = {
-        user_id              : $users.items.5.id
-        car_auction_id       : $auctions.items.4.id
+        user_id              : $users.items[5].id
+        car_auction_id       : $auctions.items[4].id
         notify_on_new_bid    : true
         notify_on_price_drop : true
         notify_on_ending_soon: true
@@ -137,8 +137,8 @@ function car_3_seed_car_watchlist {
     // User 7 watching Ferrari
     db.add car_watchlist {
       data = {
-        user_id              : $users.items.6.id
-        car_auction_id       : $auctions.items.1.id
+        user_id              : $users.items[6].id
+        car_auction_id       : $auctions.items[1].id
         notify_on_new_bid    : true
         notify_on_price_drop : true
         notify_on_ending_soon: false
@@ -149,8 +149,8 @@ function car_3_seed_car_watchlist {
     // User 8 watching Mercedes and Porsche
     db.add car_watchlist {
       data = {
-        user_id              : $users.items.7.id
-        car_auction_id       : $auctions.items.2.id
+        user_id              : $users.items[7].id
+        car_auction_id       : $auctions.items[2].id
         notify_on_new_bid    : true
         notify_on_price_drop : true
         notify_on_ending_soon: true
@@ -160,8 +160,8 @@ function car_3_seed_car_watchlist {
   
     db.add car_watchlist {
       data = {
-        user_id              : $users.items.7.id
-        car_auction_id       : $auctions.items.0.id
+        user_id              : $users.items[7].id
+        car_auction_id       : $auctions.items[0].id
         notify_on_new_bid    : false
         notify_on_price_drop : false
         notify_on_ending_soon: true

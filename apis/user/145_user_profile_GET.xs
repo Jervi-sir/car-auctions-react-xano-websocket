@@ -1,14 +1,13 @@
 // Get current user's profile
 query "user/profile" verb=GET {
   api_group = "user"
-  auth = "user"
 
   input {
   }
 
   stack {
     // Get user
-    db.get user {
+    db.get "" {
       field_name = "id"
       field_value = $auth.id
     } as $user

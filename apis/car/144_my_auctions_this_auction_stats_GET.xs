@@ -1,7 +1,6 @@
 // Get comprehensive auction statistics (owner only)
 query "my-auctions/this-auction/stats" verb=GET {
   api_group = "car"
-  auth = "user"
 
   input {
     int auction_id
@@ -83,7 +82,7 @@ query "my-auctions/this-auction/stats" verb=GET {
         }
       
         // Get bidder info
-        db.get user {
+        db.get "" {
           field_name = "id"
           field_value = $bid.bidder_id
         } as $bidder
@@ -97,7 +96,7 @@ query "my-auctions/this-auction/stats" verb=GET {
     // Get views over time (last 30 days, grouped by date)
     var $thirty_days_ago {
       value = now
-        |subtract:(30 * 24 * 60 * 60 * 1000)
+        |subtract:30 * 24 * 60 * 60 * 1000
     }
   
     db.query car_auction_view_history {

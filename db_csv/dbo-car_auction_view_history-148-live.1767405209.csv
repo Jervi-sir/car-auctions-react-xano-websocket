@@ -1,0 +1,65 @@
+id,car_auction_id,user_id,ip_address,user_agent,referrer,view_source,session_id,view_duration_seconds,created_at
+3,9,16,41.98.53.233,,https://xqrx-tgqf-f4ju.n7e.xano.io/workspace/1-0/api/64/query/102,web,,0,1765372074874
+4,9,16,41.98.53.233,,https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1765372085911
+5,10,16,41.98.53.233,,https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1765372136565
+6,10,16,41.98.53.233,,https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1765372140563
+7,10,16,41.98.53.233,,https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1765372143118
+8,10,14,41.98.5.62,,https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1765476982612
+9,3,14,41.98.5.62,,https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1765476994300
+10,8,14,41.98.5.62,,https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1765477086338
+11,3,14,41.98.5.62,,https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1765477089635
+12,3,15,41.98.5.62,,https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1765477137341
+13,3,14,41.98.5.62,,https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1765477165381
+14,36,14,41.98.5.62,,https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1765477298817
+15,5,14,41.98.5.62,,https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1765478460777
+16,5,15,41.98.5.62,,https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1765478492083
+17,5,14,41.98.5.62,,https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1765478533763
+18,5,14,41.98.5.62,,https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1765478623619
+19,5,14,41.98.5.62,,https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1765478630759
+20,37,14,41.98.5.62,,https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1765478694042
+21,5,14,41.98.5.62,,https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1765488787628
+22,3,14,41.98.5.62,,https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1765488816146
+23,8,14,41.98.5.62,,https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1765488824694
+24,7,14,41.98.5.62,,https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1765488840322
+25,10,14,41.98.5.62,,https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1765488843019
+26,5,15,79.201.92.231,,https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1765490014340
+27,5,15,79.201.92.231,,https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1765490026737
+28,4,17,106.219.149.90,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",https://car-auctions-xano.vercel.app/,web,,0,1765505365305
+29,5,17,106.219.149.90,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",https://car-auctions-xano.vercel.app/,web,,0,1765505379635
+30,1,18,47.15.115.167,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1765510413833
+31,1,15,152.0.177.123,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1765511489455
+32,2,15,106.196.12.159,"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1765519137667
+33,4,15,106.196.12.159,"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1765519221296
+34,4,15,106.196.12.159,"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1765519231190
+35,1,15,169.255.124.5,"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:146.0) Gecko/20100101 Firefox/146.0",https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1765524437330
+36,4,15,223.184.189.191,"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:146.0) Gecko/20100101 Firefox/146.0",https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1765534631983
+37,1,15,223.184.189.191,"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:146.0) Gecko/20100101 Firefox/146.0",https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1765534658871
+38,1,17,106.219.149.90,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",https://car-auctions-xano.vercel.app/,web,,0,1765542601863
+39,2,17,106.219.149.90,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",https://car-auctions-xano.vercel.app/,web,,0,1765542653153
+40,6,17,106.219.149.90,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",https://car-auctions-xano.vercel.app/,web,,0,1765542702373
+41,2,20,223.233.56.211,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1765543454715
+42,1,20,223.233.56.211,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1765543473101
+43,6,15,102.89.85.197,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",https://car-auctions-xano.vercel.app/,web,,0,1765646614530
+44,4,15,102.89.85.197,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",https://car-auctions-xano.vercel.app/,web,,0,1765646629772
+45,1,15,102.89.85.197,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",https://car-auctions-xano.vercel.app/,web,,0,1765646642083
+46,1,15,167.103.26.255,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:146.0) Gecko/20100101 Firefox/146.0",https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1765773215875
+47,1,14,41.98.51.42,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1766007158959
+48,10,14,41.98.51.42,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1766007200382
+49,10,14,41.98.51.42,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1766007534072
+50,3,14,41.98.240.216,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0",https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1766083983379
+51,4,15,104.28.220.186,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1766378861860
+52,4,15,104.28.220.186,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1766378919536
+53,1,15,104.28.220.186,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1766378953467
+54,38,15,104.28.220.186,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1766378962134
+55,4,15,68.70.58.242,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1767293632825
+56,5,15,68.70.58.242,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1767293638094
+57,1,14,41.99.233.139,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1767304954930
+58,1,14,41.99.233.139,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1767305013538
+59,2,14,41.99.233.139,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1767305033151
+60,2,14,41.99.233.139,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1767305041692
+61,9,14,41.99.233.139,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1767305046570
+62,9,14,41.99.233.139,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1767305051726
+63,7,14,41.99.233.139,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1767305055830
+64,7,14,41.99.233.139,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1767305062667
+65,2,15,152.58.28.21,"Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Mobile Safari/537.36",https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1767393668253
+66,2,15,152.58.28.21,"Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Mobile Safari/537.36",https://default-dev-ef16ae-xqrx-tgqf-f4ju.n7e.xano.io/,web,,0,1767393680881

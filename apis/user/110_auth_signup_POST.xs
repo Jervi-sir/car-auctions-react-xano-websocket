@@ -22,7 +22,7 @@ query "auth/signup" verb=POST {
       error = "This account is already in use"
     }
   
-    db.add user {
+    db.add "" {
       data = {
         name       : $input.name
         email      : $input.email

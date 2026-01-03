@@ -11,7 +11,7 @@ table car_auction_view_history {
     }
   
     int user_id? {
-      table = "user"
+      table = ""
     }
   
     // View metadata

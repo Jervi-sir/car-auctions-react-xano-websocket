@@ -1,7 +1,6 @@
 // Update user profile
 query "user/profile" verb=PUT {
   api_group = "user"
-  auth = "user"
 
   input {
     text name? filters=trim
@@ -13,7 +12,7 @@ query "user/profile" verb=PUT {
 
   stack {
     // Get current user
-    db.get user {
+    db.get "" {
       field_name = "id"
       field_value = $auth.id
     } as $user
@@ -36,7 +35,7 @@ query "user/profile" verb=PUT {
   
     conditional {
       if ($email_changed) {
-        db.query user {
+        db.query "" {
           where = $db.user.email == $input.email && $db.user.id != $auth.id
           return = {type: "count"}
         } as $email_count
@@ -62,7 +61,7 @@ query "user/profile" verb=PUT {
     }
   
     // Update user
-    db.edit user {
+    db.edit "" {
       field_name = "id"
       field_value = $auth.id
       data = {

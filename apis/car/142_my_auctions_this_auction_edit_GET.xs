@@ -1,7 +1,6 @@
 // Get auction details for editing (owner only)
 query "my-auctions/this-auction/edit" verb=GET {
   api_group = "car"
-  auth = "user"
 
   input {
     int auction_id

@@ -1,6 +1,5 @@
 query "user/account" verb=DELETE {
   api_group = "user"
-  auth = "user"
 
   input {
     text current_password? filters=trim
@@ -9,7 +8,7 @@ query "user/account" verb=DELETE {
 
   stack {
     // Get current user
-    db.get user {
+    db.get "" {
       field_name = "id"
       field_value = $auth.id
     } as $user
@@ -30,7 +29,7 @@ query "user/account" verb=DELETE {
       error = "Confirmation must be exactly 'DELETE'"
     }
   
-    db.del user {
+    db.del "" {
       field_name = "id"
       field_value = $auth.id
     }

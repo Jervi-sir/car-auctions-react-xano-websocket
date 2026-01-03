@@ -12,7 +12,7 @@ query "watchlist/toggle" verb=POST {
 
   stack {
     // Validate user exists
-    db.get user {
+    db.get "" {
       field_name = "id"
       field_value = $input.user_id
     } as $user

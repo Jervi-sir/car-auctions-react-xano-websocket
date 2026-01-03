@@ -1,7 +1,6 @@
 // Delete an auction (only by owner)
 query "my-auctions/delete" verb=DELETE {
   api_group = "car"
-  auth = "user"
 
   input {
     int auction_id

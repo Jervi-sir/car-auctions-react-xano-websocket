@@ -10,7 +10,7 @@ function broadcastBid {
       field_value = $input.bid_id
     } as $new_bid
   
-    db.get user {
+    db.get "" {
       field_name = "id"
       field_value = $new_bid.bidder_id
     } as $bidder
@@ -37,7 +37,7 @@ function broadcastBid {
     api.realtime_event {
       channel = "auctionSession/"|concat:$input.auction_id:""
       data = $data_to_broadcast
-      auth_table = "0"
+      auth_table = ""
       auth_id = ""
     }
   

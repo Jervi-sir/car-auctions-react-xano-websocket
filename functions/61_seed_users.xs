@@ -5,12 +5,12 @@ function _seed_users {
 
   stack {
     // Truncate table first
-    db.truncate user {
+    db.truncate "" {
       reset = true
     }
   
     // User 1 - Active bidder
-    db.add user {
+    db.add "" {
       data = {
         name       : "John Smith"
         email      : "john.smith@example.com"
@@ -28,7 +28,7 @@ function _seed_users {
     }
   
     // User 2 - Experienced bidder
-    db.add user {
+    db.add "" {
       data = {
         name       : "Sarah Johnson"
         email      : "sarah.johnson@example.com"
@@ -46,7 +46,7 @@ function _seed_users {
     }
   
     // User 3 - New user
-    db.add user {
+    db.add "" {
       data = {
         name       : "Michael Chen"
         email      : "michael.chen@example.com"
@@ -64,7 +64,7 @@ function _seed_users {
     }
   
     // User 4 - International bidder
-    db.add user {
+    db.add "" {
       data = {
         name       : "Emma Wilson"
         email      : "emma.wilson@example.com"
@@ -82,7 +82,7 @@ function _seed_users {
     }
   
     // User 5 - Premium bidder
-    db.add user {
+    db.add "" {
       data = {
         name       : "David Martinez"
         email      : "david.martinez@example.com"
@@ -100,7 +100,7 @@ function _seed_users {
     }
   
     // User 6 - Casual browser
-    db.add user {
+    db.add "" {
       data = {
         name       : "Lisa Anderson"
         email      : "lisa.anderson@example.com"
@@ -117,7 +117,7 @@ function _seed_users {
     }
   
     // User 7 - European collector
-    db.add user {
+    db.add "" {
       data = {
         name       : "Hans Mueller"
         email      : "hans.mueller@example.com"
@@ -135,7 +135,7 @@ function _seed_users {
     }
   
     // User 8 - Asian market bidder
-    db.add user {
+    db.add "" {
       data = {
         name       : "Yuki Tanaka"
         email      : "yuki.tanaka@example.com"

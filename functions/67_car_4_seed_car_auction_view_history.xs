@@ -14,15 +14,15 @@ function car_4_seed_car_auction_view_history {
       return = {type: "list", paging: {page: 1, per_page: 5}}
     } as $auctions
   
-    db.query user {
+    db.query "" {
       return = {type: "list", paging: {page: 1, per_page: 8}}
     } as $users
   
     // Views for Auction 1 (Porsche 911) - Most popular
     db.add car_auction_view_history {
       data = {
-        car_auction_id       : $auctions.items.0.id
-        user_id              : $users.items.0.id
+        car_auction_id       : $auctions.items[0].id
+        user_id              : $users.items[0].id
         ip_address           : "192.168.1.100"
         user_agent           : "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
         referrer             : "https://google.com"
@@ -35,8 +35,8 @@ function car_4_seed_car_auction_view_history {
   
     db.add car_auction_view_history {
       data = {
-        car_auction_id       : $auctions.items.0.id
-        user_id              : $users.items.1.id
+        car_auction_id       : $auctions.items[0].id
+        user_id              : $users.items[1].id
         ip_address           : "192.168.1.101"
         user_agent           : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"
         referrer             : "https://google.com"
@@ -49,8 +49,8 @@ function car_4_seed_car_auction_view_history {
   
     db.add car_auction_view_history {
       data = {
-        car_auction_id       : $auctions.items.0.id
-        user_id              : $users.items.2.id
+        car_auction_id       : $auctions.items[0].id
+        user_id              : $users.items[2].id
         ip_address           : "192.168.1.102"
         user_agent           : "Mozilla/5.0 (iPhone; CPU iPhone OS 14_7_1 like Mac OS X)"
         view_source          : "mobile"
@@ -62,7 +62,7 @@ function car_4_seed_car_auction_view_history {
   
     db.add car_auction_view_history {
       data = {
-        car_auction_id       : $auctions.items.0.id
+        car_auction_id       : $auctions.items[0].id
         ip_address           : "192.168.1.103"
         user_agent           : "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
         view_source          : "web"
@@ -75,8 +75,8 @@ function car_4_seed_car_auction_view_history {
     // Views for Auction 2 (Ferrari F40) - High interest
     db.add car_auction_view_history {
       data = {
-        car_auction_id       : $auctions.items.1.id
-        user_id              : $users.items.3.id
+        car_auction_id       : $auctions.items[1].id
+        user_id              : $users.items[3].id
         ip_address           : "192.168.1.104"
         user_agent           : "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
         referrer             : "https://ferrarichat.com"
@@ -89,8 +89,8 @@ function car_4_seed_car_auction_view_history {
   
     db.add car_auction_view_history {
       data = {
-        car_auction_id       : $auctions.items.1.id
-        user_id              : $users.items.4.id
+        car_auction_id       : $auctions.items[1].id
+        user_id              : $users.items[4].id
         ip_address           : "192.168.1.105"
         user_agent           : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"
         view_source          : "web"
@@ -102,8 +102,8 @@ function car_4_seed_car_auction_view_history {
   
     db.add car_auction_view_history {
       data = {
-        car_auction_id       : $auctions.items.1.id
-        user_id              : $users.items.6.id
+        car_auction_id       : $auctions.items[1].id
+        user_id              : $users.items[6].id
         ip_address           : "192.168.1.106"
         user_agent           : "Mozilla/5.0 (iPad; CPU OS 14_7_1 like Mac OS X)"
         view_source          : "mobile"
@@ -116,8 +116,8 @@ function car_4_seed_car_auction_view_history {
     // Views for Auction 3 (Mercedes 300SL)
     db.add car_auction_view_history {
       data = {
-        car_auction_id       : $auctions.items.2.id
-        user_id              : $users.items.1.id
+        car_auction_id       : $auctions.items[2].id
+        user_id              : $users.items[1].id
         ip_address           : "192.168.1.107"
         user_agent           : "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
         view_source          : "web"
@@ -129,8 +129,8 @@ function car_4_seed_car_auction_view_history {
   
     db.add car_auction_view_history {
       data = {
-        car_auction_id       : $auctions.items.2.id
-        user_id              : $users.items.5.id
+        car_auction_id       : $auctions.items[2].id
+        user_id              : $users.items[5].id
         ip_address           : "192.168.1.108"
         user_agent           : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"
         referrer             : "https://benzworld.org"
@@ -143,8 +143,8 @@ function car_4_seed_car_auction_view_history {
   
     db.add car_auction_view_history {
       data = {
-        car_auction_id       : $auctions.items.2.id
-        user_id              : $users.items.7.id
+        car_auction_id       : $auctions.items[2].id
+        user_id              : $users.items[7].id
         ip_address           : "192.168.1.109"
         user_agent           : "Mozilla/5.0 (iPhone; CPU iPhone OS 14_7_1 like Mac OS X)"
         view_source          : "mobile"
@@ -157,8 +157,8 @@ function car_4_seed_car_auction_view_history {
     // Views for Auction 4 (Lamborghini Countach)
     db.add car_auction_view_history {
       data = {
-        car_auction_id       : $auctions.items.3.id
-        user_id              : $users.items.2.id
+        car_auction_id       : $auctions.items[3].id
+        user_id              : $users.items[2].id
         ip_address           : "192.168.1.110"
         user_agent           : "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
         view_source          : "web"
@@ -170,8 +170,8 @@ function car_4_seed_car_auction_view_history {
   
     db.add car_auction_view_history {
       data = {
-        car_auction_id       : $auctions.items.3.id
-        user_id              : $users.items.4.id
+        car_auction_id       : $auctions.items[3].id
+        user_id              : $users.items[4].id
         ip_address           : "192.168.1.111"
         user_agent           : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"
         referrer             : "https://lamborghini-talk.com"
@@ -184,7 +184,7 @@ function car_4_seed_car_auction_view_history {
   
     db.add car_auction_view_history {
       data = {
-        car_auction_id       : $auctions.items.3.id
+        car_auction_id       : $auctions.items[3].id
         ip_address           : "192.168.1.112"
         user_agent           : "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
         view_source          : "web"
@@ -197,8 +197,8 @@ function car_4_seed_car_auction_view_history {
     // Views for Auction 5 (Jaguar E-Type)
     db.add car_auction_view_history {
       data = {
-        car_auction_id       : $auctions.items.4.id
-        user_id              : $users.items.1.id
+        car_auction_id       : $auctions.items[4].id
+        user_id              : $users.items[1].id
         ip_address           : "192.168.1.113"
         user_agent           : "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
         view_source          : "web"
@@ -210,8 +210,8 @@ function car_4_seed_car_auction_view_history {
   
     db.add car_auction_view_history {
       data = {
-        car_auction_id       : $auctions.items.4.id
-        user_id              : $users.items.5.id
+        car_auction_id       : $auctions.items[4].id
+        user_id              : $users.items[5].id
         ip_address           : "192.168.1.114"
         user_agent           : "Mozilla/5.0 (iPad; CPU OS 14_7_1 like Mac OS X)"
         view_source          : "mobile"
@@ -223,8 +223,8 @@ function car_4_seed_car_auction_view_history {
   
     db.add car_auction_view_history {
       data = {
-        car_auction_id       : $auctions.items.4.id
-        user_id              : $users.items.0.id
+        car_auction_id       : $auctions.items[4].id
+        user_id              : $users.items[0].id
         ip_address           : "192.168.1.115"
         user_agent           : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"
         referrer             : "https://jaguarforums.com"

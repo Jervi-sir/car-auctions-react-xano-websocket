@@ -54,11 +54,11 @@ table car_auction {
   
     // Winner info (nullable until sold)
     int winning_bidder_id? {
-      table = "user"
+      table = ""
     }
   
     int? created_by? {
-      table = "user"
+      table = ""
     }
   
     timestamp created_at?=now

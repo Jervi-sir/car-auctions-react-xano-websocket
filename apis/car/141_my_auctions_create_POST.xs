@@ -1,7 +1,6 @@
 // Create a new car auction listing with detailed specifications
 query "my-auctions/create" verb=POST {
   api_group = "car"
-  auth = "user"
 
   input {
     // Title of the auction listing

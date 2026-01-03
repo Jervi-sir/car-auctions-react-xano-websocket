@@ -11,7 +11,7 @@ table car_bid {
     }
   
     int bidder_id {
-      table = "user"
+      table = ""
     }
   
     // Bid details

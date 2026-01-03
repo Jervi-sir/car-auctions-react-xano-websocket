@@ -1,7 +1,6 @@
 // Get detailed auction car information by slug and log view
 query "auctions/slug" verb=GET {
   api_group = "car"
-  auth = "user"
 
   input {
     text slug?
@@ -38,7 +37,7 @@ query "auctions/slug" verb=GET {
         car_auction_id: $auction.id
         user_id       : $auth.id
         ip_address    : $env.$remote_ip
-        user_agent    : $env.$http_headers.['User-Agent']
+        user_agent    : $env.$http_headers["User-Agent"]
         referrer      : $env.$http_headers.Referer
         view_source   : "web"
         created_at    : now
