@@ -10,7 +10,7 @@ function broadcastBid {
       field_value = $input.bid_id
     } as $new_bid
   
-    db.get "" {
+    db.get user {
       field_name = "id"
       field_value = $new_bid.bidder_id
     } as $bidder
@@ -49,4 +49,6 @@ function broadcastBid {
     bidder           : $__all_vars|get:"bidder":null
     data_to_broadcast: $__all_vars|get:"data_to_broadcast":null
   }
+
+  history = 100
 }
